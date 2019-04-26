@@ -1,5 +1,5 @@
 # FennecBot
-a Discord bot written in Node and JavaScript
+a Discord bot written in Node and JavaScript.
 FennecBot was started when I decided I wanted to learn Node.
 I had basic JavaScript knowledge at the time, so I also strived to take the time and learn more about it while working with Node.js.
 
