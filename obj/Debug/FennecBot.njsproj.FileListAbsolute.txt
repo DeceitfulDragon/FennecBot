@@ -1,0 +1,6 @@
+C:\Users\Sky\FennecBot\obj\Debug\FennecBot.njsprojAssemblyReference.cache
+C:\Users\Sky\FennecBot\obj\Debug\FennecBot.njsproj.CoreCompileInputs.cache
+C:\Users\Sky\FennecBot\bin\Microsoft.NodejsTools.WebRole.dll
+K:\FennecBot\obj\Debug\FennecBot.njsprojAssemblyReference.cache
+K:\FennecBot\obj\Debug\FennecBot.njsproj.CoreCompileInputs.cache
+K:\FennecBot\bin\Microsoft.NodejsTools.WebRole.dll

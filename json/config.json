@@ -1,0 +1,26 @@
+{
+	"botversion": "0.5",
+
+	"color": "#FF8C00",
+
+	"economyColor": "#FF0000",
+
+	"helpColor": "#001DF9",
+
+	"naughtyColor": "#8A2BE2",
+
+	"prefix": "//",
+
+	"renegadeID": "236279590916456450",
+
+	"snowyID": "303681018253279233",  
+
+  "triviaColor": "#F7FF00",
+
+  "Helpers": [
+
+    "303681018253279233",
+    "236279590916456450"
+
+  ]
+}
