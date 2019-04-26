@@ -2,8 +2,15 @@
 a Discord bot written in Node and JavaScript.
 FennecBot was started when I decided I wanted to learn Node.
 I had basic JavaScript knowledge at the time, so I also strived to take the time and learn more about it while working with Node.js.
+I decided to put the bot up on Github for others to view and learn from the code.
 
 The bot is currently in development, along with this Readme.md file (Expect changes!)
+
+## Notice
+The Bot will not work correctly from just cloning the git repository, as a few functions that depend on the SQlite3 files will be missing.
+However, you can use a working version of the bot on the [RBS Discord Server](https://discord.gg/jEWvsN9).
+
+
 ## Built With:
 * [Discord.js](https://discord.js.org) - For Discord API Functionality.
 * [Node.js](https://nodejs.org) - Language that the bot is built in
