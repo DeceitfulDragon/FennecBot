@@ -7,17 +7,29 @@ exports.run = (client, message, args) => {
 
 	var gender = args;
 
-	if (gender == 'Male' || gender == 'Female') {
+	if (gender == 'Male' || gender == 'male') {
 
 		var gender = args;
 
 		var data = `UPDATE profile
-		SET gender = '${gender}'
+		SET gender = 'Male'
 		WHERE id = ${message.author.id};`
 
 		sql.exec(data);
 
 		return message.reply(`Success! Your gender has been set to ${gender}`);
+
+	} else if (gender == 'Female' || gender == 'female') {
+
+			var gender = args;
+
+			var data = `UPDATE profile
+		SET gender = 'Female'
+		WHERE id = ${message.author.id};`
+
+			sql.exec(data);
+
+			return message.reply(`Success! Your gender has been set to ${gender}`);
 
 	} else {
 
@@ -25,3 +37,4 @@ exports.run = (client, message, args) => {
 
 	}
 };
+
