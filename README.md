@@ -10,6 +10,7 @@ The bot is currently in development, along with this Readme.md file (Expect chan
 The Bot will not work correctly from just cloning the git repository, as a few functions that depend on the SQlite3 files will be missing.
 However, you can use a working version of the bot on the [RBS Discord Server](https://discord.gg/jEWvsN9).
 
+**Extra Note:** The bot is currently not hosted properly, as I'm trying to get it hosted on my Raspberry Pi, so expect for the bot to not be online 24/7.
 
 ## Built With:
 * [Discord.js](https://discord.js.org) - For Discord API Functionality.
@@ -25,4 +26,4 @@ My Discord:   FearTheRenegade#7276
 
 ## License
 
-FennecBot is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+FennecBot is licensed under the MIT License - see the [LICENSE.md](https://github.com/FearTheRenegade/FennecBot/blob/master/LICENSE) file for details
