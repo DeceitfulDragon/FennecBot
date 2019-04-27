@@ -12,7 +12,6 @@ const max = 200;
 const request = require('request');
 const insultURL = 'https://evilinsult.com/generate_insult.php?lang=en&type=json'
 const complimentURL = 'https://complimentr.com/api'
-
 const activity = [
 	'with my tail!',
 	'with friends!',
@@ -72,6 +71,39 @@ client.on('ready', () => {
 
 
 client.on("message", message => {
+	/*
+	//          POINT SYSTEM 
+	//		CALL FOR POINTCHART
+
+	client.getPointChart = sql.prepare("SELECT * FROM pointchart WHERE id = ?");
+	client.setPointChart = sql.prepare("INSERT OR REPLACE INTO pointchart (id, user, points, level) VALUES (@id, @user, @points, @level);");
+
+	if (message.author.bot) return;
+
+	let PointChart;
+
+	if (message.guild) {
+
+		PointChart = client.getPointChart.get(message.author.id);
+
+        if (!PointChart) {
+            PointChart = { id: message.author.id, user: message.author.username, points: 0, level: 1, }
+		}
+	
+
+		PointChart.points++;
+
+		client.setPointChart.run(PointChart);
+
+        const curLevel = Math.floor(0.1 * Math.sqrt(PointChart.points));
+        if (PointChart.level < curLevel) {
+            PointChart.level++;
+            message.reply(`You've leveled up to level **${curLevel}**! Congrats!`);
+        }
+     
+	}
+	*/
+
 
 	//			RANDOM INSULTS AND COMPLIMENTS	
 
