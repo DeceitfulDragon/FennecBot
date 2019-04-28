@@ -14,7 +14,7 @@ exports.run = (client, message, args) => {
 	const abilityEmbed = new Discord.RichEmbed()
 		.setColor(client.config.color)
 		.setAuthor(`Ability Score Roller`)
-		.setDescription(`**STR:** ${STRvalue}\n**DEX:** ${DEXvalue}\n**CON:** ${CONvalue}\n**INT** ${INTvalue}\n**WIS:** ${WISvalue}\n**CHA:** ${CHAvalue}`)
+		.setDescription(`**STR:** ${STRvalue}\n**DEX:** ${DEXvalue}\n**CON:** ${CONvalue}\n**INT:** ${INTvalue}\n**WIS:** ${WISvalue}\n**CHA:** ${CHAvalue}`)
 		.setFooter(`Called by ${message.author.username}`, message.author.avatarURL);
 	return message.channel.send(abilityEmbed);
 
