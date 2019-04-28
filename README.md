@@ -8,7 +8,7 @@ The bot is currently in development, along with this Readme.md file (Expect chan
 
 ## Notice
 The Bot will not work correctly from just cloning the git repository, as a few functions that depend on the SQlite3 files will be missing.
-However, you can use a working version of the bot on the [RBS Discord Server](https://discord.gg/jEWvsN9).
+However, you can use a working version of the bot on the RBS Discord Server.
 
 **Extra Note:** The bot is currently not hosted properly, as I'm trying to get it hosted on my Raspberry Pi, so expect for the bot to not be online 24/7.	
 
@@ -23,11 +23,11 @@ Default prefix is '//'.
 * [Better-SQLite3](https://github.com/JoshuaWise/better-sqlite3) - For the database
 * Various other NPM packages (See the node package)
 
-## Author(s)
-* **[FearTheRenegade](https://github.com/FearTheRenegade)** - *Most of the work you see*
-```
-My Discord:   FearTheRenegade#7276
-```
+## Contact
+* **[Github](https://github.com/FearTheRenegade)**
+* **[Twitter](https://twitter.com/FearTheRenegade)**
+* **[Reddit](https://www.reddit.com/user/Draconic_Renegade)**
+* **Discord:** FearTheRenegade#7276
 
 ## License
 
