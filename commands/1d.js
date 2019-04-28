@@ -6,8 +6,6 @@ exports.run = (client, message, args) => {
 	var parts = content.split(" ");
 	const max = parts[1];
 	var dieResult = Math.floor(Math.random() * (max - min + 1)) + min;
-	var dieWeighted = dieResult + 3;
-	var badDie = max - 3;
 	var bonus = parseInt(parts[2]);
 	var bonusTotal = bonus + dieResult;
 	const nat20 = 'https://imgur.com/63XO760.png';
