@@ -54,6 +54,15 @@ client.on('ready', () => {
 	client.user.setActivity(selectedActivity);
 
 
+})
+
+
+
+
+
+client.on("message", message => {
+
+
 	//			SETTINGS TABLE FOR BETTER-SQLITE3
 
 	const Stable = sql.prepare("SELECT count(*) FROM sqlite_master WHERE type='table' AND name = 'settings';").get();
@@ -77,15 +86,6 @@ client.on('ready', () => {
 		Settings = { guildid: message.guild.id, guildname: message.guild.name, nsfw: "false", economy: "true", music: "true" }
 	}
 	client.setSettings.run(Settings);
-
-})
-
-
-
-
-
-client.on("message", message => {
-
 
 	//			RANDOM INSULTS AND COMPLIMENTS	
 
