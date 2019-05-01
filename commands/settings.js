@@ -16,6 +16,9 @@ exports.run = (client, message, args) => {
 	if (!Settings) {
 		Settings = { guildid: message.guild.id, guildname: message.guild.name, nsfw: "false", economy: "true", music: "true" }
 	}
+	client.setSettings.run(Settings);
+
+
 	if (message.member.hasPermission(perm)) {
 
 		if (module == 'nsfw' || module == 'NSFW' || module == 'Nsfw') {		// NSFW SETTING
