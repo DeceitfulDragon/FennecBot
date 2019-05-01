@@ -4,11 +4,11 @@ const Discord = require("discord.js");
 const Enmap = require("enmap");
 const fs = require("fs");
 const client = new Discord.Client();
-const config = require("./json/config.json");
+const config = require("./json/config.json")
 const SQLite = require("better-sqlite3");
 const sql = new SQLite('./main.sqlite');
 const min = 0;
-const max = 200;
+const max = 500;
 const request = require('request');
 const insultURL = 'https://evilinsult.com/generate_insult.php?lang=en&type=json'
 const complimentURL = 'https://complimentr.com/api'
@@ -32,12 +32,12 @@ client.on("error", (e) => console.log(e));
 client.on("warn", (e) => console.log(e)); 
 
 client.on("guildCreate", guild => {
-	// This event triggers when the bot joins a guild.
+
 	console.log(`< FennecBot joined guild: ${guild.name} [ID = ${guild.id}] This guild has ${guild.memberCount} members. >`);
 });
 
 client.on("guildDelete", guild => {
-	// Triggers when the bot is removed from a guild.
+
 	console.log(`< FennecBot was removed from: ${guild.name} [ID = ${guild.id}] >`);
 });
 
@@ -45,25 +45,38 @@ client.on("guildDelete", guild => {
 client.on('ready', () => {
 
     // Notifies that FennecBot has logged in, if message is not seen in console, check token or internet connection.
-	console.log(`< LOGGED IN || Current Users: ${ client.users.size }, Current Servers: ${ client.guilds.size } >`)
+	console.log(`< LOGGED IN || Current Users: ${client.users.size}, Current Servers: ${client.guilds.size} >`)
+	console.log(`< MADE BY FEARTHERENEGADE#7276 >`)
 
 
     // Activity of FennecBot
 	var selectedActivity = activity[Math.floor(Math.random() * activity.length)];
 	client.user.setActivity(selectedActivity);
 
-   //      BETTER-SQLITE3 STUFF 
 
-    const table = sql.prepare("SELECT count(*) FROM sqlite_master WHERE type='table' AND name = 'pointchart';").get();
-	if (!table['count(*)']) {
-		
-        sql.prepare("CREATE TABLE pointchart (id TEXT PRIMARY KEY, user TEXT, points INTEGER, level INTEGER);").run();
-        sql.prepare("CREATE UNIQUE INDEX idx_pointchart_id ON pointchart (id);").run();
-        sql.pragma("synchronous = 1");
-        sql.pragma("journal_mode = wal");
-    }
+	//			SETTINGS TABLE FOR BETTER-SQLITE3
+
+	const Stable = sql.prepare("SELECT count(*) FROM sqlite_master WHERE type='table' AND name = 'settings';").get();
+
+	if (!Stable['count(*)']) {
+
+		sql.prepare("CREATE TABLE settings (guildid TEXT PRIMARY KEY, guildname TEXT, nsfw TEXT, economy TEXT, music TEXT);").run();
+		sql.prepare("CREATE UNIQUE INDEX idx_settings_id ON settings (id);").run();
+
+		sql.pragma("synchronous = 1");
+		sql.pragma("journal_mode = wal");
+
+	}
+
+	client.getSettings = sql.prepare("SELECT * FROM settings WHERE guildid = ?");
+	client.setSettings = sql.prepare("INSERT OR REPLACE INTO settings (guildid, guildname, nsfw, economy, music) VALUES (@guildid, @guildname, @nsfw, @economy, @music);");
+	Settings = client.getSettings.get(message.guild.id);
 
 
+	if (!Settings) {
+		Settings = { guildid: message.guild.id, guildname: message.guild.name, nsfw: "false", economy: "true", music: "true" }
+	}
+	client.setSettings.run(Settings);
 
 })
 
@@ -92,7 +105,7 @@ client.on("message", message => {
 	}
 
 	// Compliments
-	if (chanceGen == 4) {	// If number = 4, send a compliment
+	if (chanceGen == 402) {	// If number = 402, send a compliment
 		request(complimentURL, function (error, response, body) {
 			if (!error && response.statusCode == 200) {
 				var base = JSON.parse(body)
@@ -130,7 +143,7 @@ client.on("message", message => {
     });
 
     process.on('unhandledRejection', err => {
-        console.error('Uncaught Promise Error! \n' + err.stack);
+        console.error('<< Uncaught Promise Error! >> \n' + err.stack);
     });
 
     //login to FennecBot
