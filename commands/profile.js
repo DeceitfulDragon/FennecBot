@@ -3,9 +3,6 @@ const SQLite = require("better-sqlite3");
 const sql = new SQLite('./main.sqlite');
 exports.run = (client, message) => {
 
-	client.getPointChart = sql.prepare("SELECT * FROM pointchart WHERE id = ?");
-	PointChart = client.getPointChart.get(message.author.id);
-
 		client.getDick = sql.prepare("SELECT * FROM sizes WHERE id = ?");
 	Dick = client.getDick.get(message.author.id);
 
@@ -37,7 +34,6 @@ exports.run = (client, message) => {
 			.setTitle(`:globe_with_meridians: ${message.author.username}'s Profile.`)
 			.setThumbnail(message.author.avatarURL)
 			.addField(`:dollar: Money`, `Cash: $${Eco.cash}\nBank: $${Eco.bank}`, true)
-			//.addField(`:trophy: Level`, `Level: ${PointChart.level}\nPoints: ${PointChart.points}`, true)
 			.addField(`:alarm_clock:  TimeZone:`, `${Profile.zone}`, true)
 			.addField(`:spy: Gender:`, `${Profile.gender}`, true)
 			.addField(`:medal:  Reputation:`, `-- ${Profile.rep} --`, true)
