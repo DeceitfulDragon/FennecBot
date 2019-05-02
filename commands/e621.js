@@ -29,7 +29,7 @@ exports.run = (client, message, args) => {
 
 
     // uses the booru search module
-    booru.search('e621', [query], { limit: 1, random: true })
+    booru.search('e621', query, { limit: 1, random: true })
         .then(booru.commonfy)
         .then(images => {
             for (let image of images) {
