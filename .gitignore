@@ -19,9 +19,7 @@ assets
 *.sqlite
 *.sqlite-shm
 *.sqlite-wal
-dev.js
-hornyboy.js
-leaderboard.js
+/commands/news.json
 
 # Runtime data
 pids
