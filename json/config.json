@@ -1,17 +1,19 @@
 {
-	"botversion": "0.5",
+  "botversion": "0.5",
 
-	"color": "#FF8C00",
+  "color": "#FF8C00",
 
-	"economyColor": "#FF0000",
+  "economyColor": "#FF0000",
 
-	"helpColor": "#001DF9",
+  "helpColor": "#001DF9",
 
-	"naughtyColor": "#8A2BE2",
+  "naughtyColor": "#8A2BE2",
 
-	"prefix": "//",
+  "prefix": "//",
 
   "triviaColor": "#F7FF00",
+
+  "newsColor": "#00CCFF",
 
   "Helpers": [
 
