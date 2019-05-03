@@ -76,12 +76,11 @@ exports.run = (client, message, args) => {
 		var URL = response.articles.map(({ url }) => url);
 		var Source = response.articles.map(({ source }) => source);
 		var Site = Source.map(({ name }) => name);
-		var betterImage = Image.split("'");
 
 		// finally send the news embed
 
 		const newsEmbed = new Discord.RichEmbed()
-			.setThumbnail(betterImage[0])
+			.setThumbnail(Image)
 			.setTitle(Title)
 			.setColor(client.config.newsColor)
 			.setAuthor(`${Author} on ${Site}`)
