@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 exports.run = (client, message, args) => {
 
 
-	if (args == 'mod' || args == 'Mod') {
+	if (args == 'mod') {
 
 		// Moderation Help Menu
 		const helpMod = new Discord.RichEmbed()
@@ -12,12 +12,11 @@ exports.run = (client, message, args) => {
 			.addField("Ban <user>", "Bans the mentioned user.")
 			.addField("Delete <number>", "Deletes the specified number of messages in a channel.")
 			.addField("Coming Soon", "Coming Soon.")
-			.addField("Blank", "Suggest a command to Renegade.")
-			.setFooter("FennecBot Version: " + client.config.botversion);
+			.addField("Blank", "Suggest a command to Renegade.");
 
 		return message.channel.send(helpMod);
 
-	} else if (args == 'fun' || args == 'Fun') {
+	} else if (args == 'fun') {
 
 		// Fun Help Menu
 		const helpFun = new Discord.RichEmbed()
@@ -38,12 +37,11 @@ exports.run = (client, message, args) => {
 			.addField("Say <message>", "FennecBot mimics you. (Owner Only RN)")
 			.addField("Trump", "Pulls a random trump quote.")
 			.addField("YesNo <question>", "Pulls a random gif and answer to your question.")
-			.addField("PP", "Measures your dick.")
-			.setFooter("FennecBot Version: " + client.config.botversion);
+			.addField("PP", "Measures your dick.");
 
 		return message.channel.send(helpFun);
 
-	} else if (args == 'game' || args == 'Game') {
+	} else if (args == 'game') {
 
 		// Game Help Menu
 		const helpGame = new Discord.RichEmbed()
@@ -51,14 +49,13 @@ exports.run = (client, message, args) => {
 			.addField("FennecBot Prefix:", client.config.prefix)
 			.addField("RR", "Russian Roulette.")
 			.addField("Trivia", "Currently does not work.")
-			.addField("Slots", "Coming Soon.")
+			.addField("Slots", " Gamble 'till you're broke!")
 			.addField("RPS", "Coming Soon.")
-			.addField("Cheese Touch", "Coming Soon.")
-			.setFooter("FennecBot Version: " + client.config.botversion);
+			.addField("Cheese Touch", "Coming Soon.");
 
 		return message.channel.send(helpGame);
 
-	} else if (args == 'utility' || args == 'Utility') {
+	} else if (args == 'utility') {
 
 		// Utility Help Menu
 		const helpUtility = new Discord.RichEmbed()
@@ -66,14 +63,13 @@ exports.run = (client, message, args) => {
 			.addField("FennecBot Prefix:", client.config.prefix)
 			.addField("ServerInfo", "Shows info about the server.")
 			.addField("BotInfo", "Shows info about the server.")
-			.addField("BotInvite", "Sends an Invite URL for FennecBot in your DM.")
+			.addField("BotInvite", "~~Sends an Invite URL for FennecBot in your DM.~~ Unavailable!")
 			.addField("Ping", "Responds with Bot and API latency.")
-			.addField("Blank", "Suggest a command to Renegade.")
-			.setFooter("FennecBot Version: " + client.config.botversion);
+			.addField("Blank", "Suggest a command to Renegade.");
 
 		return message.channel.send(helpUtility);
 
-	} else if (args == 'action' || args == 'Action') {
+	} else if (args == 'action') {
 
 		// Action Help Menu
 		const helpAction = new Discord.RichEmbed()
@@ -83,12 +79,11 @@ exports.run = (client, message, args) => {
 			.addField("Kiss <user>", "Kisses the mentioned user.")
 			.addField("Slap <user>", "Slaps the mentioned user.")
 			.addField("Pat <user>", "Pats the mentioned user.")
-			.addField("Marry <user>", "Propose to the mentioned user.")
-			.setFooter("FennecBot Version: " + client.config.botversion);
+			.addField("Marry <user>", "Propose to the mentioned user.");
 
 		return message.channel.send(helpAction);
 
-	} else if (args == 'nsfw' || args == 'NSFW') {
+	} else if (args == 'nsfw') {
 
 		// NSFW Help Menu
 		const helpNSFW = new Discord.RichEmbed()
@@ -100,12 +95,11 @@ exports.run = (client, message, args) => {
 			.addField("NGif", "Sends a random NSFW Gif.")
 			.addField("NSFW", "Sends a random NSFW image.")
 			.addField("R34 <tags>", "Searches for a random image from rule34 with your tags.")
-			.addField("Yiff", "Sends a random Yiff image")
-			.setFooter("FennecBot Version: " + client.config.botversion);
+			.addField("Yiff", "Sends a random Yiff image");
 
 		return message.channel.send(helpNSFW);
 
-	} else if (args == 'misc' || args == 'Misc') {
+	} else if (args == 'misc') {
 
 		// Misc Help Menu
 		const helpMisc = new Discord.RichEmbed()
@@ -114,30 +108,24 @@ exports.run = (client, message, args) => {
 			.addField("Profile", "Sends your profile embed.")
 			.addField("Level", "Sends your level and points.")
 			.addField("Timezone <timezone abbr>", "Change your timezone.")
-			.addField("Birthday <birthday: 00-00>", "Change your birthday.")
-			.setFooter("FennecBot Version: " + client.config.botversion);
+			.addField("Birthday <birthday: 00-00>", "Change your birthday.");
 
 		return message.channel.send(helpMisc);
-
-	} else if (args == 'all' || args == 'All') {
-
-		return message.channel.send("https://docs.google.com/document/d/14WMPUhiKSElnHAK0vYYlvNIgGHk28dNHbZ-JGJAnDQo/edit?usp=sharing  --  Incomplete list of all commands.")
 
 	} else {
 
            // Main Help Menu
-      const helpMain = new Discord.RichEmbed()
-            .setColor(client.config.helpColor)
-            .addField("FennecBot Prefix:", client.config.prefix)
-            .addField("Help Mod", "Displays the moderation commands.")
-            .addField("Help Fun", "Displays the fun commands.")
-            .addField("Help Game", "Displays the game commands.")
-            .addField("Help Utility", "Displays the utility commands.")
-            .addField("Help Action", "Displays the action commands.")
+		const helpMain = new Discord.RichEmbed()
+			.setColor(client.config.helpColor)
+			.addField("FennecBot Prefix:", client.config.prefix)
+			.addField("Help Mod", "Displays the moderation commands.")
+			.addField("Help Fun", "Displays the fun commands.")
+			.addField("Help Game", "Displays the game commands.")
+			.addField("Help Utility", "Displays the utility commands.")
+			.addField("Help Action", "Displays the action commands.")
 			.addField("Help NSFW", "Displays the nsfw commands.")
 			.addField("Help Misc", "Displays the misc commands.")
-			.addField("Help All", "Shows all of the commands.")
-            .setFooter("FennecBot Version: " + client.config.botversion);
+			.addField("Help All", "Shows all of the commands.");
 
         return message.channel.send(helpMain);
     }

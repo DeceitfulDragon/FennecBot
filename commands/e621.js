@@ -34,11 +34,11 @@ exports.run = (client, message, args) => {
         .then(images => {
             for (let image of images) {
                 // Embed for the image
-                const naughtyEmbed = new Discord.RichEmbed()
-                    .setAuthor(`E621 | ${query}`)
-                    .setImage(image.common.file_url)
-                    .setColor(client.config.naughtyColor)
-                    .setFooter("FennecBot Version: " + client.config.botversion);
+				const naughtyEmbed = new Discord.RichEmbed()
+					.setAuthor(`E621 | ${query}`)
+					.setImage(image.common.file_url)
+					.setColor(client.config.naughtyColor);
+
                 return message.channel.send(naughtyEmbed);
             }
             // Catch any errors
@@ -46,6 +46,7 @@ exports.run = (client, message, args) => {
             console.log(err)
             return message.channel.send(`Nothing found for **${query}**`);
             })
+
 	} else {
 
 		return message.channel.send("NSFW Module is disabled for this server! Tell someone with administrative privileges to do //settings to change it.");

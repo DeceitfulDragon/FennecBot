@@ -142,8 +142,8 @@ client.on("message", message => {
         });
     });
 
-    process.on('unhandledRejection', err => {
-        console.error('<< Uncaught Promise Error! >> \n' + err.stack);
+    process.on('unhandledRejection', error => {
+        console.error('<< Unhandled Promise Error! >> \n' + error.stack);
     });
 
     //login to FennecBot

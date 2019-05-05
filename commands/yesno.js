@@ -13,8 +13,8 @@ exports.run = (client, message) => {
                 .setColor(client.config.color)
                 .setAuthor("Answer: " + info.answer)
                 .setImage(image)
-            // Sends the RichEmbed
-            message.channel.send(yesnoEmbed)
+
+			return message.channel.send(yesnoEmbed);
         }
     })
 

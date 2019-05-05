@@ -2,6 +2,7 @@
 const randomPuppy = require('random-puppy');
 const SQLite = require("better-sqlite3");
 const sql = new SQLite('./main.sqlite');
+
 exports.run = (client, message) => {
 
 	client.getSettings = sql.prepare("SELECT * FROM settings WHERE guildid = ?");
@@ -25,13 +26,13 @@ exports.run = (client, message) => {
 
     randomPuppy('ahegao')
         .then(url => {
-            const embed = new Discord.RichEmbed()
-                .setDescription(`ahegao`)
-                .setImage(url)
-                .setColor(client.config.naughtyColor)
-                .setFooter("FennecBot Version: " + client.config.botversion);
+			const embed = new Discord.RichEmbed()
+				.setDescription(`Ahegao`)
+				.setImage(url)
+				.setColor(client.config.naughtyColor);
             return message.channel.send(embed);
 		})
+
 	} else {
 
 		return message.channel.send("NSFW Module is disabled for this server! Tell someone with administrative privileges to do //settings to change it.");

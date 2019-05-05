@@ -7,6 +7,7 @@ const sreddits = [
     "rule34",
     "HQHentai"
 ]
+
 exports.run = (client, message) => {
 
 	client.getSettings = sql.prepare("SELECT * FROM settings WHERE guildid = ?");
@@ -29,12 +30,12 @@ exports.run = (client, message) => {
 
     randomPuppy(ranSub)
         .then(url => {
-            const dogEmbed = new Discord.RichEmbed()
-                .setAuthor("Hentai")
-                .setImage(url)
-                .setColor(client.config.naughtyColor)
-                .setFooter("FennecBot Version: " + client.config.botversion);
-            return message.channel.send(dogEmbed);
+			const hentaiEmbed = new Discord.RichEmbed()
+				.setAuthor("Hentai")
+				.setImage(url)
+				.setColor(client.config.naughtyColor);
+
+			return message.channel.send(hentaiEmbed);
         })
 	} else {
 

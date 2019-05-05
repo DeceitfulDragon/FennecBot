@@ -1,5 +1,3 @@
-
-
 exports.run = (client, message, [mention, ...reason]) => {
     const perm = 'KICK_MEMBERS'
 

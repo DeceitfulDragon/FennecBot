@@ -262,7 +262,6 @@ exports.run = (client, message, args) => {
 									.setAuthor(`E621 | Snowy's Stuff`)
 									.setImage(image.common.file_url)
 									.setColor(client.config.naughtyColor)
-									.setFooter("FennecBot Version: " + client.config.botversion);
 								return message.channel.send(naughtyEmbed);
 							}
 						})

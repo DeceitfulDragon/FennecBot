@@ -10,8 +10,6 @@ exports.run = (client, message, args) => {
 			.setTitle("Birthday")
 			.setDescription(`Please put your birthday in the form of month - day. EX: 01-10 = January 10th.`)
 			.setColor(client.config.economyColor);
-
-
 		return message.channel.send(TZEmbed);
 
 	} else {

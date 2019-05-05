@@ -2,7 +2,6 @@
 const randomPuppy = require('random-puppy');
 const SQLite = require("better-sqlite3");
 const sql = new SQLite('./main.sqlite');
-
 const sreddits = [
     "Hyiff",
     "yiff",
@@ -10,6 +9,7 @@ const sreddits = [
     "FeralYiff",
     "yiffgif"
 ]
+
 exports.run = (client, message) => {
 
 
@@ -33,12 +33,12 @@ exports.run = (client, message) => {
 
 		randomPuppy(ranSub)
 			.then(url => {
-				const dogEmbed = new Discord.RichEmbed()
+				const yiffEmbed = new Discord.RichEmbed()
 					.setAuthor("Yiff")
 					.setImage(url)
-					.setColor(client.config.naughtyColor)
-					.setFooter("FennecBot Version: " + client.config.botversion);
-				return message.channel.send(dogEmbed);
+					.setColor(client.config.naughtyColor);
+
+				return message.channel.send(yiffEmbed);
 			})
 	} else {
 

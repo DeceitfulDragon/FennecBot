@@ -10,6 +10,6 @@ exports.run = (client, message) => {
         message.channel.send("Please pick a number greater than 1.")
     } else {
         var numResult = Math.floor(Math.random() * (max - min + 1)) + min;
-        message.channel.send(numResult)
+		return message.channel.send(numResult);
     }
 };

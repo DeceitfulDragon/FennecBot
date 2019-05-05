@@ -7,7 +7,7 @@ exports.run = (client, message) => {
         if (!error && response.statusCode == 200) {
             var info = JSON.parse(body)
             var trump = info.message
-            message.channel.send('"' + trump + '"')
+			return message.channel.send(`"${trump}" -Donald J. Trump.`);
         }
     })
 

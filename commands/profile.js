@@ -40,9 +40,7 @@ exports.run = (client, message) => {
 			.addField(`:eggplant:  Dick Size:`, `${Dick.size} inches`, true)
 			.addField(`:gift: Birthday:`, `${Profile.birth}`, true)
 			.addField(`:sparkling_heart: Married to:`, `${Profile.marry}`, true)
-			.addField(`:handbag: Items:`, `NULL`, true)
-			.setFooter("FennecBot Version: " + client.config.botversion);
-
+			.addField(`:handbag: Items:`, `NULL`, true);
 
 		return message.channel.send(profileEmbed);
 

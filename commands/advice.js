@@ -7,7 +7,7 @@ exports.run = (client, message) => {
         if (!error && response.statusCode == 200) {
             var info = JSON.parse(body)
             var adv = info.slip.advice
-            message.channel.send(adv)
+			return message.channel.send(adv);
         }
     })
 

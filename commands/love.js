@@ -1,28 +1,11 @@
 ﻿const Discord = require("discord.js");
-var heartIco = ''
-
-var stateM = '';
 const max = 100
 const min = 1
-
-// Statement Arrays
-const uThirty = [
-    "Might wanna look for someone else.",
-    "This doesn't look like a good match...",
-    "Who the fuck matched ya'll?"
-]
-
-const u60 = [
-    "'Almost' there.",
-    "Probably gonna get friend-zoned.",
-    "You can always do better"
-]
-
-const uSeventy = [
-    "There's definitely something here",
-    "Ooooooo!",
-    "*slurp slurp*"
-]
+const { Score20 } = require('../json/lovecalc.json');
+const { Score40 } = require('../json/lovecalc.json');
+const { Score60 } = require('../json/lovecalc.json');
+const { Score80 } = require('../json/lovecalc.json');
+const { Score90 } = require('../json/lovecalc.json');
 
 exports.run = (client, message) => {
 
@@ -31,33 +14,42 @@ exports.run = (client, message) => {
     var nameA = parts[1]
     var nameB = parts[2]
 
-    var numResult = Math.floor(Math.random() * (max - min + 1)) + min;
-    // Under Thirty
-    var uThree = uThirty[Math.floor(Math.random() * uThirty.length)];
-    // Under Sixty
-    var uSix = u60[Math.floor(Math.random() * u60.length)];
-    // Under Seventy
-    var uSeven = uSeventy[Math.floor(Math.random() * uSeventy.length)];
+    var percentage = Math.floor(Math.random() * (max - min + 1)) + min;
 
-    // If Statements
-    if (numResult < 30) {
-        var stateM = uThree
-        var heartIco = 'https://i.imgur.com/reeZdtL.png'
-    } else if (29 < numResult && numResult < 60) {
-        var stateM = uSix
-        var heartIco = 'https://i.imgur.com/S60ESOS.png'
-    } else if (numResult > 59) {
-        var stateM = uSeven
-        var heartIco = 'https://i.imgur.com/VPiVdGG.png'
-    }
+	if (percentage <= 20) {
 
-    const loveEmbed = new Discord.RichEmbed()
-        .setColor('#FF00BB')
-        .setThumbnail(heartIco)
-        .setAuthor("Love Calculator | " + nameA + " & " + nameB)
-        .addField("Calculation:", numResult + "%")
-        .addField("Statement:", stateM)
-        .setFooter("FennecBot Version: " + client.config.botversion);
-    message.channel.send(loveEmbed)
+		var statement = Score20[Math.floor(Math.random() * Score20.length)];
+		var heartIco = 'https://i.imgur.com/reeZdtL.png';
+
+	} else if (20 < percentage && percentage < 40) {
+
+		var statement = Score40[Math.floor(Math.random() * Score40.length)];
+		var heartIco = 'https://i.imgur.com/reeZdtL.png';
+
+
+	} else if (40 <= percentage && percentage < 60) {
+
+		var statement = Score60[Math.floor(Math.random() * Score60.length)];
+		var heartIco = 'https://i.imgur.com/S60ESOS.png';
+
+
+	} else if (60 <= percentage && percentage < 80) {
+
+		var statement = Score80[Math.floor(Math.random() * Score80.length)];
+		var heartIco = 'https://i.imgur.com/S60ESOS.png';
+
+	} else if (percentage >= 80) {
+
+		var statement = Score90[Math.floor(Math.random() * Score90.length)];
+		var heartIco = 'https://i.imgur.com/VPiVdGG.png';
+	}
+
+	const loveEmbed = new Discord.RichEmbed()
+		.setColor('#FF00BB')
+		.setThumbnail(heartIco)
+		.setAuthor(`Love Calculator [${nameA} & ${nameB}`)
+		.addField(`Calculation:`, `**${percentage}%**`)
+		.addField("Statement:", statement);
+	return message.channel.send(loveEmbed);
 
 };

@@ -38,7 +38,6 @@ exports.run = (client, message) => {
                 .setAuthor("Random NSFW Image")
                 .setImage(url)
                 .setColor(client.config.naughtyColor)
-				.setFooter(`FennecBot Version: ${client.config.botversion}`);
             return message.channel.send(dogEmbed);
         })
 	} else {

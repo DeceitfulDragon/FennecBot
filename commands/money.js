@@ -19,8 +19,7 @@ exports.run = (client, message) => {
 		.setColor(client.config.economyColor)
 		.setAuthor(`${message.author.username}'s Balance.`)
 		.addField("Cash", `$${Eco.cash}`, true)
-		.addField("Bank", `$${Eco.bank}`, true)
-		.setFooter("FennecBot Version: " + client.config.botversion);
+		.addField("Bank", `$${Eco.bank}`, true);
 	return message.channel.send(ecoEmbed);
 
 };

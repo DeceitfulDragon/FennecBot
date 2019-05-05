@@ -38,7 +38,6 @@ exports.run = (client, message, args) => {
                     .setAuthor(`Rule34 | ${query}`)
                     .setImage(image.common.file_url)
                     .setColor(client.config.naughtyColor)
-                    .setFooter("FennecBot Version: " + client.config.botversion);
                 return message.channel.send(naughtyEmbed);
             }
             // Catch any errors

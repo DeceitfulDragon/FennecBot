@@ -8,10 +8,9 @@ exports.run = (client, message) => {
     var fNumber = Math.floor(Math.random() * (max - min + 1)) + min;
     const url = 'https://randomfox.ca/images/' + fNumber + '.jpg';
 
- const foxEmbed = new Discord.RichEmbed()
-        .setColor(client.config.color)
-     .setAuthor(`Random Fox (www.randomfox.ca)`)
-        .setImage(url)
-    // Sends the RichEmbed
+	const foxEmbed = new Discord.RichEmbed()
+		.setColor(client.config.color)
+		.setAuthor(`Random Fox (www.randomfox.ca)`)
+		.setImage(url);
 	return message.channel.send(foxEmbed);
 };
