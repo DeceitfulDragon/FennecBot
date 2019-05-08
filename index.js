@@ -8,7 +8,7 @@ const config = require("./json/config.json")
 const SQLite = require("better-sqlite3");
 const sql = new SQLite('./main.sqlite');
 const min = 0;
-const max = 500;
+const max = 1000;
 const request = require('request');
 const insultURL = 'https://evilinsult.com/generate_insult.php?lang=en&type=json'
 const complimentURL = 'https://complimentr.com/api'
