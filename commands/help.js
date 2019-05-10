@@ -106,7 +106,6 @@ exports.run = (client, message, args) => {
 			.setColor(client.config.helpColor)
 			.addField("FennecBot Prefix:", client.config.prefix)
 			.addField("Profile", "Sends your profile embed.")
-			.addField("Level", "Sends your level and points.")
 			.addField("Timezone <timezone abbr>", "Change your timezone.")
 			.addField("Birthday <birthday: 00-00>", "Change your birthday.");
 
