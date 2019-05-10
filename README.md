@@ -8,7 +8,7 @@ The bot is currently in development, along with this Readme.md file (Expect chan
 
 ## Notice
 The Bot will not work correctly from just cloning the git repository, as a few functions that depend on the SQlite3 files will be missing.
-However, you can use a working version of the bot on the [RBS Discord Server](https://discord.gg/jEWvsN9).
+However, you can use a working version of the bot on the [RBS Discord Server](https://discord.gg/MRWmhmX).
 
 **Extra Note:** The bot is currently not hosted properly, as I'm trying to get it hosted on my Raspberry Pi, so expect for the bot to not be online 24/7.	
 
