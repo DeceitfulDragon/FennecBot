@@ -47,7 +47,7 @@ exports.run = (client, message) => {
 	const loveEmbed = new Discord.RichEmbed()
 		.setColor('#FF00BB')
 		.setThumbnail(heartIco)
-		.setAuthor(`Love Calculator [${nameA} & ${nameB}`)
+		.setAuthor(`Love Calculator [${nameA} & ${nameB}]`)
 		.addField(`Calculation:`, `**${percentage}%**`)
 		.addField("Statement:", statement);
 	return message.channel.send(loveEmbed);
