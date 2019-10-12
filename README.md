@@ -1,3 +1,10 @@
+<div>
+  <div style="margin-left:auto;margin-right:auto;">
+    <img src="https://i.imgur.com/4xJZapx.png"><br><br>
+  </div>
+</div>
+
+
 # FennecBot
 a Discord bot written in Node and JavaScript.
 FennecBot was started when I decided I wanted to learn Node.
@@ -7,14 +14,9 @@ I decided to put the bot up on Github for others to view and learn from the code
 The bot is currently in development, along with this Readme.md file (Expect changes!)
 
 ## Notice
-The Bot will not work correctly from just cloning the git repository, as a few functions that depend on the SQlite3 files will be missing.
-However, you can use a working version of the bot on the [RBS Discord Server](https://discord.gg/MRWmhmX).
-
-**Extra Note:** The bot is currently not hosted properly, as I'm trying to get it hosted on my Raspberry Pi, so expect for the bot to not be online 24/7.	
+Cloning the repository will not work, as certain files using SQLite3 will be missing.
 
 ## Usage
-Default prefix is '//'.
-
 [under construction]
 
 ## Built With:
@@ -25,8 +27,6 @@ Default prefix is '//'.
 
 ## Contact
 * **[Github](https://github.com/FearTheRenegade)**
-* **[Twitter](https://twitter.com/FearTheRenegade)**
-* **[Reddit](https://www.reddit.com/user/Draconic_Renegade)**
 * **Discord:** FearTheRenegade#7276
 
 ## License
