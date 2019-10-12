@@ -33,7 +33,7 @@ client.on("warn", (e) => console.log(e));
 
 client.on("guildCreate", guild => {
 
-	console.log(`< FennecBot joined guild: ${guild.name} [ID = ${guild.id}] This guild has ${guild.memberCount} members. >`);
+	console.log(`< FennecBot joined server: ${guild.name} [ID = ${guild.id}] This server has ${guild.memberCount} members. >`);
 });
 
 client.on("guildDelete", guild => {
@@ -56,10 +56,6 @@ client.on('ready', () => {
 
 })
 
-
-
-
-
 client.on("message", message => {
 
 
@@ -69,7 +65,7 @@ client.on("message", message => {
 
 	if (!Stable['count(*)']) {
 
-		sql.prepare("CREATE TABLE settings (guildid TEXT PRIMARY KEY, guildname TEXT, nsfw TEXT, economy TEXT, music TEXT);").run();
+		sql.prepare("CREATE TABLE settings (guildid TEXT PRIMARY KEY, guildname TEXT, nsfw TEXT, economy TEXT, music TEXT, prefix TEXT);").run();
 		sql.prepare("CREATE UNIQUE INDEX idx_settings_id ON settings (id);").run();
 
 		sql.pragma("synchronous = 1");
@@ -78,16 +74,16 @@ client.on("message", message => {
 	}
 
 	client.getSettings = sql.prepare("SELECT * FROM settings WHERE guildid = ?");
-	client.setSettings = sql.prepare("INSERT OR REPLACE INTO settings (guildid, guildname, nsfw, economy, music) VALUES (@guildid, @guildname, @nsfw, @economy, @music);");
+	client.setSettings = sql.prepare("INSERT OR REPLACE INTO settings (guildid, guildname, nsfw, economy, music, prefix) VALUES (@guildid, @guildname, @nsfw, @economy, @music, @prefix);");
 	Settings = client.getSettings.get(message.guild.id);
 
 
 	if (!Settings) {
-		Settings = { guildid: message.guild.id, guildname: message.guild.name, nsfw: "false", economy: "true", music: "true" }
+		Settings = { guildid: message.guild.id, guildname: message.guild.name, nsfw: "false", economy: "true", music: "true", prefix: "//" }
 	}
 	client.setSettings.run(Settings);
 
-	//			RANDOM INSULTS AND COMPLIMENTS	
+	//			RANDOM INSULTS AND COMPLIMENTS
 
 
 	// Number Generator

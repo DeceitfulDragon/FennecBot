@@ -2,17 +2,32 @@
 
 	"work": [
 		"You sold cookies outside the orphanage.",
-		"You got some donations on Twitch.",
-		"Your youtube revenue came in!",
-		"You sold lemonade in California while everything was on fire.",
+		"You sold ~~bottled water~~ La Croix in California while everything was on fire.",
 		"You worked as a bartender for a bit at a gay nightclub.",
 		"You mowed the lawns of your community.",
 		"You sold some shoplifted items on eBay.",
 		"You mugged a highschooler on the street.",
 		"You prayed to the Fennec Gods for riches.",
 		"You sold some old electronics online.",
-		"You found a wallet in the park.",
-		"You discovered some money in the couch cushions!"
-	]
+		"You became a door-to-door salesman and continued to return to the same alzheimer's patient every hour."
+	],
 
+  "loot": [
+    "You discovered some loose change between the couch cushions!",
+    "You stole some adderall from a kid with ADHD and then sold it back to them.",
+    "You got some donations on Twitch.",
+    "Your youtube revenue came in!",
+    "You found a wallet in the park."
+
+  ],
+
+  "mug": [
+    "You go to mug them but realize you forgot to bring a weapon! You dig around the trash for a broken bottle but they were already gone when you returned!",
+    "You attempt to mug the user but slipped on a banana peel in front of them and embarrassed yourself.",
+    "You were facing the wrong way when you went to mug them, so they just left.",
+    "You go to mug them, they hand you all the money they have, you won! You're rich! Yes, it's all coming together! Then... You wake up, your mom calls your name, you're late.. and you still live with your mom? Loser.",
+    "Your rusty spoon broke while attempting to mug them.",
+    "You were nearly successful in mugging them but they revealed to you that they were really three kids in a trench coat and had no money besides some gum.",
+    "You"
+  ]
 }

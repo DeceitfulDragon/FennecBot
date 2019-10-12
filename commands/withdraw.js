@@ -3,7 +3,7 @@ const sql = new SQLite('./main.sqlite');
 
 exports.run = (client, message, args) => {
 
-	const money = args;
+	const money = parseInt(args);
 
 	var content = message.content;
 	var parts = content.split(" ");
@@ -15,13 +15,13 @@ exports.run = (client, message, args) => {
 
 	if (!Eco) {
 
-		return message.reply(`You don't have an Eco account setup! Do //money and then come back to this command.`);
+		return message.reply(`You don't have an Eco account setup! Do //account and then come back to this command.`);
 
 	} else {
 
 		if (!check) {
 
-			return message.reply("SPECIFY THE MONEY LEBOWSKI!")
+			return message.reply("I can't withdraw nothing! Please specify the amount!")
 
 		} else {
 
@@ -29,18 +29,20 @@ exports.run = (client, message, args) => {
 
 				if (Eco.bank >= money) {
 
-					let userscore = client.getEco.get(message.author.id);
+					let mon = client.getEco.get(message.author.id);
 
-					userscore.cash = parseInt(userscore.cash) - money;
-					userscore.bank = parseInt(userscore.bank) + money;
+					mon.bank = parseInt(mon.bank) - money;
+					// I literally cannot believe the solution to withdraw was to put the bank part above the cash
+					mon.cash = parseInt(mon.cash) + money;
+					
 
-					client.setEco.run(userscore);
+					client.setEco.run(mon);
 
-					return message.reply(`$${money} has been withdrawn from your bank.`)
+					return message.reply(`$${money} has been added to your wallet. Try not to get mugged!`)
 
 				} else {
 
-					return message.reply("You don't have that much money in your bank, sorry!")
+					return message.reply("HAH YOU'RE TOO POOR FOR THAT!")
 
 				}
 			} else {
@@ -50,5 +52,4 @@ exports.run = (client, message, args) => {
 			}
 		}
 	}
-	
 };

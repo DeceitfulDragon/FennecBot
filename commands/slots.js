@@ -11,9 +11,7 @@ exports.run = (client, message, args) => {
 
 	var money = args;
 
-	//const slots = ['🎱', '🎲', '🍇', '💛', '🏆'];
-	//const slots = ['<:slots_cherry:559910964938539018>', '<:slots_bar:559910937314983966>', '🍇', '❤', '<:slots_bigwin:559910953093693441>'];
-	const slots = ['<:slots_cherry:559910964938539018>', '🎱', '🍇', '❤'];
+	const slots = ['🏆', '🎱', '🍇', '❤'];
 
 	var slots1 = slots[Math.floor(Math.random() * slots.length)];
 	var slots2 = slots[Math.floor(Math.random() * slots.length)];
@@ -36,7 +34,7 @@ exports.run = (client, message, args) => {
 				if (slots1 == slots2 && slots2 == slots3) {
 
 					if (money >= 100) {
-						var moneyWon = money * 2;
+						var moneyWon = money * 3;
 
 						let userscore = client.getEco.get(message.author.id);
 
@@ -55,7 +53,7 @@ exports.run = (client, message, args) => {
 
 					} else {
 
-						var moneyWon = money * 3;
+						var moneyWon = money * 2;
 
 						let userscore = client.getEco.get(message.author.id);
 

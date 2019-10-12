@@ -1,42 +1,41 @@
-﻿const SQLite = require("better-sqlite3");
+﻿const { loot } = require("../json/eco.json")
+const SQLite = require("better-sqlite3");
 const sql = new SQLite('./main.sqlite');
-const talkedRecently = new Set();
+const lootTimer = new Set();
 
 const min = 10;
 const max = 50;
-exports.run = (client, message, args) => {
+exports.run = (client, message) => {
 
 	client.getEco = sql.prepare("SELECT * FROM economy WHERE id = ?");
 	client.setEco = sql.prepare("INSERT OR REPLACE INTO economy (id, cash, bank, user) VALUES (@id, @cash, @bank, @user);");
 	Eco = client.getEco.get(message.author.id);
 
 	var money = Math.floor(Math.random() * (max - min + 1)) + min;
-
-
-
+	var gLoot = loot[Math.floor(Math.random() * loot.length)];
 
 	if (!Eco) {
 
-		return message.reply(`You don't have an Eco account setup! Do //money and then come back to this command.`);
+		return message.reply(`You don't have an bank account setup! Do //account and then come back to this command.`);
 
 	} else {
 
-		if (!talkedRecently.has(message.author.id)) {
+		if (!lootTimer.has(message.author.id)) {
 
 			Eco.cash += money;	// Put it into the cash
 
 			client.setEco.run(Eco);
 
-			talkedRecently.add(message.author.id);
+			lootTimer.add(message.author.id);
 			setTimeout(() => {
-				talkedRecently.delete(message.author.id);
+				lootTimer.delete(message.author.id);
 			}, 60000);
 
-			return message.reply(`You found some loose change while digging through messages! +**$${money}** added to your wallet`);
+			return message.reply(`${gLoot} +**$${money}** added to your wallet.`);
 
 		} else {
 
-			return message.reply(`Sorry bucko, you need a take a break before doin' that again! (Timeout is 60 seconds total)`);
+			return message.reply(`Oh noes! All the loot is gone! Come back later when it respawns. (Timeout is 60 seconds total)`);
 
 		}	
 	}

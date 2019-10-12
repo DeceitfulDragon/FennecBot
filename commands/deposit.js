@@ -21,7 +21,7 @@ exports.run = (client, message, args) => {
 
 		if (!check) {
 
-			return message.reply("SPECIFY THE MONEY LEBOWSKI!")
+			return message.reply("I can't deposit nothing! Please specify the amount!")
 
 		} else {
 
@@ -31,16 +31,17 @@ exports.run = (client, message, args) => {
 
 					let mon = client.getEco.get(message.author.id);
 
-					mon.cash = parseInt(mon.cash) - money;
-					mon.bank = parseInt(mon.bank) + money;
+					mon.bank = parseInt(mon.bank) + money; // Needs to be on top to deposit first, then take out cash.
+
+					mon.cash = parseInt(mon.cash) - money; 
 
 					client.setEco.run(mon);
 
-					return message.reply(`$${money} has been deposited into your bank.`)
+					return message.reply(`$${money} has been deposited into your bank. Now it can't be stolen!`)
 
 				} else {
 
-					return message.reply("You don't have that much money in your bank, sorry!")
+					return message.reply("HAH YOU'RE TOO POOR FOR THAT!")
 
 				}
 			} else {
