@@ -28,8 +28,6 @@ exports.run = (client, message, args) => {
 
 		message.channel.send(marryMessage).then(() => {
 
-
-			// Await !vote messages
 			//const filter = m => m.content.startsWith('!vote');
 			const filter = m => `accept`;
 			// Errors: ['time'] treats ending because of the time limit as an error

@@ -1,7 +1,13 @@
-
+//const SQLite = require("better-sqlite3");
+//const sql = new SQLite('./main.sqlite');
 //const talkedRecently = new Set();
 
 module.exports = (client, message) => {
+
+
+    //client.getSettings = sql.prepare("SELECT * FROM settings WHERE guildid = ?");
+    //client.setSettings = sql.prepare("INSERT OR REPLACE INTO settings (guildid, guildname, nsfw, economy, music, prefix) VALUES (@guildid, @guildname, @nsfw, @economy, @music, @prefix);");
+    //Settings = client.getSettings.get(message.guild.id);
  /*( if (talkedRecently.has(message.author.id))
   return;
 
@@ -16,7 +22,7 @@ setTimeout(() => {
   if (message.author.bot) return;
 
   // Ignore messages not starting with the prefix (in config.json)
-  if (message.content.indexOf(client.config.prefix) !== 0) return;
+  if (message.content.indexOf(Settings.prefix) !== 0) return;
 
   // Our standard argument/command name definition.
   const args = message.content.slice(client.config.prefix.length).trim().split(/ +/g);
