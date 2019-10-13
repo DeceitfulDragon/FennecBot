@@ -1,6 +1,6 @@
 <div>
   <div style="margin-left:auto;margin-right:auto;">
-    <img src="https://i.imgur.com/4xJZapx.png"><br><br>
+    <img src="https://i.imgur.com/PyqKSwT.png"><br><br>
   </div>
 </div>
 
