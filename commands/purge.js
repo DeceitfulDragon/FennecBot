@@ -1,6 +1,6 @@
 ﻿exports.run = (client, message, args) => {
 
-const user = message.mentions.users.first();
+/*const user = message.mentions.users.first();
 // Parse Amount
 const amount = !!parseInt(message.content.split(' ')[1]) ? parseInt(message.content.split(' ')[1]) : parseInt(message.content.split(' ')[2])
 if (!amount) return message.reply('Must specify an amount to delete!');
@@ -14,5 +14,5 @@ message.channel.fetchMessages({
  messages = messages.filter(m => m.author.id === filterBy).array().slice(0, amount);
  }
  message.channel.bulkDelete(messages).catch(error => console.log(error.stack));
-    });
+    });*/
 };
