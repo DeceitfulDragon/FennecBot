@@ -12,6 +12,7 @@ const max = 1000;
 const request = require('request');
 const insultURL = 'https://evilinsult.com/generate_insult.php?lang=en&type=json'
 const complimentURL = 'https://complimentr.com/api'
+const DiscordAntiSpam = require("discord-anti-spam");
 
 const activity = [
 	'with my tail!',
@@ -56,8 +57,28 @@ client.on('ready', () => {
 
 })
 
+const AntiSpam = new DiscordAntiSpam({
+    warnThreshold: 4, // Amount of messages sent in a row that will cause a warning.
+    kickThreshold: 6,
+    banThreshold: 7, // Amount of messages sent in a row that will cause a ban
+    maxInterval: 2000, // Amount of time (in ms) in which messages are cosidered spam.
+    warnMessage: "{@user}, Please stop spamming.", // Message will be sent in chat upon warning.
+    banMessage: "**{user_tag}** has been banned for spamming.", // Message will be sent in chat upon banning.
+    maxDuplicatesWarning: 7, // Amount of same messages sent that will be considered as duplicates that will cause a warning.
+    maxDuplicatesBan: 15, // Amount of same messages sent that will be considered as duplicates that will cause a ban.
+    maxDuplicatesKick: 10,
+    deleteMessagesAfterBanForPastDays: 1, // Amount of days in which old messages will be deleted. (1-7)
+    exemptPermissions: ["MANAGE_MESSAGES", "ADMINISTRATOR", "MANAGE_GUILD", "BAN_MEMBERS"], // Bypass users with at least one of these permissions
+    ignoreBots: true, // Ignore bot messages
+    verbose: false, // Extended Logs from module
+    kickEnabled: true,
+    banEnabled: true
+});
+
+
 client.on("message", message => {
 
+    AntiSpam.message(message);
 
 	//			SETTINGS TABLE FOR BETTER-SQLITE3
 
