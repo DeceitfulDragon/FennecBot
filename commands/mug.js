@@ -1,6 +1,7 @@
 ﻿const SQLite = require("better-sqlite3");
 const sql = new SQLite('./main.sqlite');
 const mugCooldown = new Set();
+const { mug } = require("../json/eco.json")
 
 const max = 10;
 const min = 0;
@@ -11,6 +12,7 @@ exports.run = (client, message, args) => {
 
 	client.getEco = sql.prepare("SELECT * FROM economy WHERE id = ?");
 	client.setEco = sql.prepare("INSERT OR REPLACE INTO economy (id, cash, bank, user) VALUES (@id, @cash, @bank, @user);");
+
 
 	if (!mugCooldown.has(message.author.id)) {
 
@@ -52,12 +54,15 @@ exports.run = (client, message, args) => {
 
 					} else {
 
+                        var nMug = mug[Math.floor(Math.random() * mug.length)];
+
+
 						mugCooldown.add(message.author.id);
 						setTimeout(() => {
 							mugCooldown.delete(message.author.id);
 						}, 1200000);
 
-						return message.reply(`[You failed to mug ${user}].`);
+						return message.reply(`${nMug} [You failed to mug ${user}].`);
 
 					}
 				} else {

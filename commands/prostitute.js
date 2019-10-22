@@ -34,6 +34,12 @@ exports.run = (client, message, args) => {
 
 	var chance = Math.floor(Math.random() * (cmax - cmin + 1)) + cmin; // Chance
 
+if (!Profile || !Dick) {
+	
+	return message.reply("Couldn't find your profile! Please go do //profile and come back to this command!");
+	
+} else {
+
 	if (!Eco) {
 
 		return message.reply(`You don't have an Eco account setup! Do //money and then come back to this command.`);
@@ -179,6 +185,7 @@ exports.run = (client, message, args) => {
 
 		}
 	}
+}
 
 
 };

@@ -5,100 +5,108 @@ const sql = new SQLite('./main.sqlite');
 exports.run = (client, message, args) => {
 
 
-	var content = message.content
-	var parts = content.split(" ");
-	var check = parts[1]
+    var content = message.content
+    var parts = content.split(" ");
+    var check = parts[1]
 
-	var money = args;
+    var money = args;
 
-	const slots = ['🏆', '🎱', '🍇', '❤'];
+    const slots = ['🏆', '🎱', '❤'];
 
-	var slots1 = slots[Math.floor(Math.random() * slots.length)];
-	var slots2 = slots[Math.floor(Math.random() * slots.length)];
-	var slots3 = slots[Math.floor(Math.random() * slots.length)];
+    var slots1 = slots[Math.floor(Math.random() * slots.length)];
+    var slots2 = slots[Math.floor(Math.random() * slots.length)];
+    var slots3 = slots[Math.floor(Math.random() * slots.length)];
 
-	client.getEco = sql.prepare("SELECT * FROM economy WHERE id = ?");
-	client.setEco = sql.prepare("INSERT OR REPLACE INTO economy (id, cash, bank, user) VALUES (@id, @cash, @bank, @user);");
-	Eco = client.getEco.get(message.author.id);
+    client.getEco = sql.prepare("SELECT * FROM economy WHERE id = ?");
+    client.setEco = sql.prepare("INSERT OR REPLACE INTO economy (id, cash, bank, user) VALUES (@id, @cash, @bank, @user);");
+    Eco = client.getEco.get(message.author.id);
 
-	if (!check) {
+    if (!Eco) {
 
-		return message.reply("WHERE'S THE MONEY LEBOWSKI!?");
+        return message.reply("No economy account detected! Do //account to open one up.")
 
-	} else {
+    } else {
 
-		if (!isNaN(money) && money > 0) {
+        if (!check) {
 
-			if (Eco.cash >= money) {
+            return message.reply("WHERE'S THE MONEY LEBOWSKI!?");
 
-				if (slots1 == slots2 && slots2 == slots3) {
+        } else {
 
-					if (money >= 100) {
-						var moneyWon = money * 3;
+            if (!isNaN(money) && money > 0) {
 
-						let userscore = client.getEco.get(message.author.id);
+                if (Eco.cash >= money) {
 
-						userscore.cash += moneyWon;
+                    if (slots1 == slots2 && slots2 == slots3) {
 
-						client.setEco.run(userscore);
+                        if (money >= 100) {
+                            var moneyWon = money * 3;
 
+                            let userscore = client.getEco.get(message.author.id);
 
-						const goodslotEmbed = new Discord.RichEmbed()
-							.setColor('#04FF00')
-							.setAuthor("Slot Machine")
-							.setDescription(`${slots1} **|** ${slots2} **|** ${slots3}`)
-							.setFooter(`Congrats, you won $${moneyWon}`);
+                            userscore.cash += moneyWon;
 
-						return message.channel.send(goodslotEmbed);
-
-					} else {
-
-						var moneyWon = money * 2;
-
-						let userscore = client.getEco.get(message.author.id);
-
-						userscore.cash += moneyWon;
-
-						client.setEco.run(userscore);
+                            client.setEco.run(userscore);
 
 
+                            const goodslotEmbed = new Discord.RichEmbed()
+                                .setColor('#04FF00')
+                                .setAuthor("Slot Machine")
+                                .setDescription(`${slots1} **|** ${slots2} **|** ${slots3}`)
+                                .setFooter(`Congrats, you won $${moneyWon}`);
 
-						const goodslotEmbed = new Discord.RichEmbed()
-							.setColor('#04FF00')
-							.setAuthor("Slot Machine")
-							.setDescription(`${slots1} **|** ${slots2} **|** ${slots3}`)
-							.setFooter(`Congrats, you won $${moneyWon}`);
+                            return message.channel.send(goodslotEmbed);
 
-						return message.channel.send(goodslotEmbed);
-					}
+                        } else {
 
-				} else {
+                            var moneyWon = money * 2;
 
-					let userscore = client.getEco.get(message.author.id);
+                            let userscore = client.getEco.get(message.author.id);
 
-					userscore.cash -= money;
+                            userscore.cash += moneyWon;
 
-					client.setEco.run(userscore);
+                            client.setEco.run(userscore);
 
-					const badslotEmbed = new Discord.RichEmbed()
-						.setColor('#FF0000')
-						.setAuthor("Slot Machine")
-						.setDescription(`${slots1} **|** ${slots2} **|** ${slots3}`)
-						.setFooter(`Sorry, you lost $${money}`);
 
-					return message.channel.send(badslotEmbed);
 
-				}
-			} else {
+                            const goodslotEmbed = new Discord.RichEmbed()
+                                .setColor('#04FF00')
+                                .setAuthor("Slot Machine")
+                                .setDescription(`${slots1} **|** ${slots2} **|** ${slots3}`)
+                                .setFooter(`Congrats, you won $${moneyWon}`);
 
-				return message.reply("Sorry, you don't have enough cash for that.");
+                            return message.channel.send(goodslotEmbed);
+                        }
 
-			}
+                    } else {
 
-		} else {
+                        let userscore = client.getEco.get(message.author.id);
 
-			return message.reply("Please specify a correct number or a number greater than 0.");
+                        userscore.cash -= money;
 
-		}
-	}
+                        client.setEco.run(userscore);
+
+                        const badslotEmbed = new Discord.RichEmbed()
+                            .setColor('#FF0000')
+                            .setAuthor("Slot Machine")
+                            .setDescription(`${slots1} **|** ${slots2} **|** ${slots3}`)
+                            .setFooter(`Sorry, you lost $${money}`);
+
+                        return message.channel.send(badslotEmbed);
+
+                    }
+                } else {
+
+                    return message.reply("Sorry, you don't have enough cash for that.");
+
+                }
+
+            } else {
+
+                return message.reply("Please specify a correct number or a number greater than 0.");
+
+            }
+        }
+    }
+
 };

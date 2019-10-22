@@ -6,6 +6,10 @@ exports.run = (client, message) => {
 		client.getDick = sql.prepare("SELECT * FROM sizes WHERE id = ?");
 	Dick = client.getDick.get(message.author.id);
 
+if (!Dick) {
+	return message.reply("You don't have a dick size to put on your profile! Go do //pp and come back to this command");
+}
+
 	client.getProfile = sql.prepare("SELECT * FROM profile WHERE id = ?");
 	client.setProfile = sql.prepare("INSERT OR REPLACE INTO profile (id, user, zone, birth, gender, rep, marry, marryid) VALUES (@id, @user, @zone, @birth, @gender, @rep, @marry, @marryid);");
 	Profile = client.getProfile.get(message.author.id);
