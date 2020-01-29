@@ -11,7 +11,7 @@ exports.run = (client, message, args) => {
 
     var money = args;
 
-    const slots = ['🏆', '🎱', '❤'];
+    const slots = ['🏆', '🎱', '❤', '🏆', '❤'];
 
     var slots1 = slots[Math.floor(Math.random() * slots.length)];
     var slots2 = slots[Math.floor(Math.random() * slots.length)];
