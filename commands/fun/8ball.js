@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const { Command } = require('../../commando');
+const { Command } = require('discord.js-commando');
 
 // Array for the 8Ball Answers
 const eBall = [

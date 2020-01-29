@@ -6,19 +6,21 @@ const fs = require("fs");
 const config = require("./json/config.json")
 const SQLite = require("better-sqlite3");
 const sql = new SQLite('./main.sqlite');
+const { CommandoClient } = require('discord.js-commando');
+const path = require('path');
+const request = require('request');
+
 const min = 0;
 const max = 1000;
-const request = require('request');
 const insultURL = 'https://evilinsult.com/generate_insult.php?lang=en&type=json'
 const complimentURL = 'https://complimentr.com/api'
-const { CommandoClient } = require('./commando');
-const path = require('path')
+
 
 const client = new CommandoClient({
     commandPrefix: '//',
     owner: process.env.OWNER,
     disableEveryone: true,
-    unknownCommandResponse: false,
+    unknownCommandResponse: true,
     //messageCacheMaxSize	= 50,
     disabledEvents: [
         'typingStart',
@@ -35,13 +37,16 @@ client.registry
     .registerGroups([
         ['eco', 'Economy'],
         ['fun', 'Fun'],
-        ['games', 'Game']
+        ['games', 'Games'],
         ['mod', 'Moderation'],
         ['nsfw', 'NSFW'],
-        ['utility', 'Utility'],
-        ['owner', 'Owner']
+        ['util', 'Utility'],
+        ['owner', 'Owner'],
     ])
-    .registerCommandsIn(__dirname + "/commands");
+
+    .registerDefaultGroups()
+    .registerDefaultCommands()
+    .registerCommandsIn(path.join(__dirname, 'commands'));
 
 const activity = [
 	'with my tail!',
