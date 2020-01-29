@@ -3,7 +3,6 @@ require('dotenv').load();
 const Discord = require("discord.js");
 const Enmap = require("enmap");
 const fs = require("fs");
-const client = new Discord.Client();
 const config = require("./json/config.json")
 const SQLite = require("better-sqlite3");
 const sql = new SQLite('./main.sqlite');
@@ -12,8 +11,37 @@ const max = 1000;
 const request = require('request');
 const insultURL = 'https://evilinsult.com/generate_insult.php?lang=en&type=json'
 const complimentURL = 'https://complimentr.com/api'
-const DiscordAntiSpam = require("discord-anti-spam");
+const { CommandoClient } = require('./commando');
+const path = require('path')
 
+const client = new CommandoClient({
+    commandPrefix: '//',
+    owner: process.env.OWNER,
+    disableEveryone: true,
+    unknownCommandResponse: false,
+    //messageCacheMaxSize	= 50,
+    disabledEvents: [
+        'typingStart',
+        'messageDelete',
+        'messageUpdate',
+        'userUpdate',
+        'voiceStateUpdate',
+        'guildMemberSpeaking'
+    ]
+});
+
+client.registry
+    .registerDefaultTypes()
+    .registerGroups([
+        ['eco', 'Economy'],
+        ['fun', 'Fun'],
+        ['games', 'Game']
+        ['mod', 'Moderation'],
+        ['nsfw', 'NSFW'],
+        ['utility', 'Utility'],
+        ['owner', 'Owner']
+    ])
+    .registerCommandsIn(__dirname + "/commands");
 
 const activity = [
 	'with my tail!',
