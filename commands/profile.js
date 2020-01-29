@@ -44,7 +44,8 @@ if (!Dick) {
 			.addField(`:eggplant:  Dick Size:`, `${Dick.size} inches`, true)
 			.addField(`:gift: Birthday:`, `${Profile.birth}`, true)
 			.addField(`:sparkling_heart: Married to:`, `${Profile.marry}`, true)
-			.addField(`:handbag: Items:`, `NULL`, true);
+			.addField(`:handbag: Items:`, `NULL`, true)
+			.addField(`:handbag: nothing:`, `nothing`, true);
 
 		return message.channel.send(profileEmbed);
 

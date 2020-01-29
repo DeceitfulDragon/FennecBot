@@ -14,6 +14,7 @@ const insultURL = 'https://evilinsult.com/generate_insult.php?lang=en&type=json'
 const complimentURL = 'https://complimentr.com/api'
 const DiscordAntiSpam = require("discord-anti-spam");
 
+
 const activity = [
 	'with my tail!',
 	'with friends!',
@@ -56,6 +57,8 @@ client.on('ready', () => {
 
 
 })
+
+// ANTI SPAM MODULE
 
 const AntiSpam = new DiscordAntiSpam({
     warnThreshold: 4, // Amount of messages sent in a row that will cause a warning.

@@ -2,7 +2,7 @@
 const randomPuppy = require('random-puppy');
 
 exports.run = (client, message, args) => {
-
+    return message.reply(`no more nuke`);
     var search = message.content.split(/\s+/g).slice(1).join(" ");
     randomPuppy(search)
         .then(url => {

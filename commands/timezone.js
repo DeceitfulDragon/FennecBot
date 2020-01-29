@@ -27,4 +27,6 @@ exports.run = async (client, message, args) => {
 		return message.reply(`Please choose a proper Timezone.`);
 
 	}
+	
+
 };
