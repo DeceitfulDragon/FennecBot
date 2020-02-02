@@ -1,5 +1,5 @@
-﻿const { crime } = require("../json/eco.json")
-const { fcrime } = require("../json/eco.json")
+﻿const { crime } = require("../assets/json/eco.json")
+const { fcrime } = require("../assets/json/eco.json")
 const SQLite = require("better-sqlite3");
 const sql = new SQLite('./main.sqlite');
 const crimeTimer = new Set();

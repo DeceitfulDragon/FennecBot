@@ -1,6 +1,6 @@
 ﻿const NewsAPI = require('newsapi');
 const Discord = require("discord.js");
-const news = require("../json/news.json")
+const news = require("../assets/json/news.json")
 
 exports.run = (client, message, args) => {
 

@@ -1,4 +1,4 @@
-﻿const { marry } = require('../json/actions.json');
+﻿const { marry } = require('../assets/json/actions.json');
 
 const Discord = require("discord.js");
 const SQLite = require("better-sqlite3");

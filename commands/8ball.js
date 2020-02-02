@@ -1,4 +1,4 @@
-const { eBall } = require('../json/8ball.json')
+const { eBall } = require('../assets/json/8ball.json')
 
 exports.run = (client, message) => {
 

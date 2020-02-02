@@ -1,4 +1,4 @@
-﻿const { work } = require("../json/eco.json")
+﻿const { work } = require("../assets/json/eco.json")
 const SQLite = require("better-sqlite3");
 const sql = new SQLite('./main.sqlite');
 const moneyTimer = new Set();

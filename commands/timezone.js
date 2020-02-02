@@ -1,18 +1,15 @@
-﻿const { TZ } = require('../json/AmericanTimeZones.json')
-const Discord = require("discord.js");
+﻿const { TZ } = require('../assets/json/AmericanTimeZones.json')
 const SQLite = require("better-sqlite3");
 const sql = new SQLite('./main.sqlite');
 
 
 exports.run = async (client, message, args) => {
 
-	var content = message.content;
-	var parts = content.split(" ");
-	var zone = parts[1];
+	var zone = args[0];
+    var uZone = zone.toUpperCase();
 
-	var zOne = args;
 
-	if (TZ.includes(zone) == true) {
+	if (TZ.includes(uZone) == true) {
 
 		var data = `UPDATE profile
 		SET zone = '${zone}'

@@ -1,4 +1,4 @@
-﻿const { slap } = require('../json/actions.json')
+﻿const { slap } = require('../assets/json/actions.json')
 
 exports.run = (client, message, args) => {
 

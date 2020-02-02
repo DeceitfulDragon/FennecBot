@@ -1,4 +1,4 @@
-﻿const { loot } = require("../json/eco.json")
+﻿const { loot } = require("../assets/json/eco.json")
 const SQLite = require("better-sqlite3");
 const sql = new SQLite('./main.sqlite');
 const lootTimer = new Set();

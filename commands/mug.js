@@ -1,13 +1,13 @@
 ﻿const SQLite = require("better-sqlite3");
 const sql = new SQLite('./main.sqlite');
 const mugCooldown = new Set();
-const { mug } = require("../json/eco.json")
+const { mug } = require("../assets/json/eco.json")
 
 const max = 10;
 const min = 0;
 
 exports.run = (client, message, args) => {
-
+    
 	const user = message.mentions.users.first() || client.users.get(args[0]); // Determine Target (First ping)
 
 	client.getEco = sql.prepare("SELECT * FROM economy WHERE id = ?");
@@ -16,16 +16,14 @@ exports.run = (client, message, args) => {
 
 	if (!mugCooldown.has(message.author.id)) {
 
-		if (!user) {
-
-			return message.reply(`Please specify who you want to mug.`);
-
-		} else {
+        if (!user) return message.reply(`Please specify who you want to mug.`);
 
 			var userscore = client.getEco.get(user.id);
 			var Ecoguy = client.getEco.get(message.author.id);
 
 			var chanceGen = Math.floor(Math.random() * (max - min + 1)) + min;
+
+        if (Ecoguy = userscore) return message.reply(`...It doesn't work like that.`);
 
 			if (!userscore || !Ecoguy) {
 
@@ -71,7 +69,6 @@ exports.run = (client, message, args) => {
 
 				}
 			}
-		}
 
 	} else {
 

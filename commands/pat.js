@@ -1,4 +1,4 @@
-﻿const { pat } = require('../json/actions.json')
+﻿const { pat } = require('../assets/json/actions.json')
 
 exports.run = (client, message, args) => {
 

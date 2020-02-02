@@ -1,11 +1,7 @@
 ﻿const Discord = require("discord.js");
+const { Score20, Score40, Score60, Score80, Score90 } = require('../assets/json/lovecalc.json');
 const max = 100
 const min = 1
-const { Score20 } = require('../json/lovecalc.json');
-const { Score40 } = require('../json/lovecalc.json');
-const { Score60 } = require('../json/lovecalc.json');
-const { Score80 } = require('../json/lovecalc.json');
-const { Score90 } = require('../json/lovecalc.json');
 
 exports.run = (client, message) => {
 

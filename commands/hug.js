@@ -1,4 +1,4 @@
-﻿const { hug } = require('../json/actions.json')
+﻿const { hug } = require('../assets/json/actions.json')
 
 exports.run = (client, message, args) => {
     var aHug = hug[Math.floor(Math.random() * hug.length)];

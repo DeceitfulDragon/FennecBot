@@ -1,4 +1,4 @@
-﻿const { kiss } = require('../json/actions.json')
+﻿const { kiss } = require('../assets/json/actions.json')
 
 exports.run = (client, message, args) => {
 
