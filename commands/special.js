@@ -1,7 +1,7 @@
 ﻿const Discord = require('discord.js');
 const randomPuppy = require('random-puppy');
 const booru = require('booru');
-const { Helpers } = require('../json/config.json')
+const { Helpers } = require('../assets/json/config.json')
 
 const sreddits = [
     "Hyiff",
