@@ -1,4 +1,4 @@
-﻿const { Helpers } = require('../json/config.json')
+﻿const { Helpers } = require('../assets/json/config.json')
 
 exports.run = (client, message, args) => {
 
