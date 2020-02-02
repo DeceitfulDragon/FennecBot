@@ -3,78 +3,26 @@ require('dotenv').load();
 const Discord = require("discord.js");
 const Enmap = require("enmap");
 const fs = require("fs");
-const config = require("./json/config.json")
+const config = require("./assets/json/config.json")
 const SQLite = require("better-sqlite3");
 const sql = new SQLite('./main.sqlite');
-const { CommandoClient } = require('discord.js-commando');
-const path = require('path');
 const request = require('request');
-
+const client = new Discord.Client();
+const DiscordAntiSpam = require('discord-anti-spam');
+const activity = require('./assets/json/activities.json')
 const min = 0;
 const max = 1000;
 const insultURL = 'https://evilinsult.com/generate_insult.php?lang=en&type=json'
 const complimentURL = 'https://complimentr.com/api'
 
 
-const client = new CommandoClient({
-    commandPrefix: '//',
-    owner: process.env.OWNER,
-    disableEveryone: true,
-    unknownCommandResponse: true,
-    //messageCacheMaxSize	= 50,
-    disabledEvents: [
-        'typingStart',
-        'messageDelete',
-        'messageUpdate',
-        'userUpdate',
-        'voiceStateUpdate',
-        'guildMemberSpeaking'
-    ]
-});
-
-client.registry
-    .registerDefaultTypes()
-    .registerGroups([
-        ['eco', 'Economy'],
-        ['fun', 'Fun'],
-        ['games', 'Games'],
-        ['mod', 'Moderation'],
-        ['nsfw', 'NSFW'],
-        ['util', 'Utility'],
-        ['owner', 'Owner'],
-    ])
-
-    .registerDefaultGroups()
-    .registerDefaultCommands()
-    .registerCommandsIn(path.join(__dirname, 'commands'));
-
-const activity = [
-	'with my tail!',
-	'with friends!',
-	'D&D',
-	'Runescape',
-	'Cookie Clicker',
-	'with my dad!',
-	'with the neighbors',
-	'with string!',
-	'by myself :(',
-	'with a ball',
-	'with the cat'
-]
-
 // Listens for Errors and Warnings. Debug shows Discord Web Socket Information
 client.on("error", (e) => console.log(e));
 client.on("warn", (e) => console.log(e)); 
 
-client.on("guildCreate", guild => {
+client.on("guildCreate", guild => { console.log(`< FennecBot joined server: ${guild.name} [ID = ${guild.id}] This server has ${guild.memberCount} members. >`);});
 
-	console.log(`< FennecBot joined server: ${guild.name} [ID = ${guild.id}] This server has ${guild.memberCount} members. >`);
-});
-
-client.on("guildDelete", guild => {
-
-	console.log(`< FennecBot was removed from: ${guild.name} [ID = ${guild.id}] >`);
-});
+client.on("guildDelete", guild => { console.log(`< FennecBot was removed from: ${guild.name} [ID = ${guild.id}] >`);});
 
 
 client.on('ready', () => {
@@ -85,9 +33,8 @@ client.on('ready', () => {
 
 
     // Activity of FennecBot
-	var selectedActivity = activity[Math.floor(Math.random() * activity.length)];
-	client.user.setActivity(selectedActivity);
-
+    const sActivity = activity[Math.floor(Math.random() * activity.length)];
+    client.user.setActivity(sActivity.text, { type: sActivity.type });
 
 })
 
