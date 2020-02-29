@@ -23,6 +23,9 @@ module.exports = {
 
         if (client.config.helpers.includes(message.author.id) == true) {
             var sizes = [
+                'A',
+                'B',
+                'C',
                 'D',
                 'DD',
                 'E',
@@ -47,7 +50,7 @@ module.exports = {
         var tits = score.tiddy;
         var tits = String(tits);
 
-        if (tits == "not set") {
+        if (tits == "not set" || tits == "//tiddy") {
 
             var data = `UPDATE sizes
 		    SET tiddy = '${tResult}-Cup'

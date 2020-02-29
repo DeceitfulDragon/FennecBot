@@ -12,7 +12,17 @@ module.exports = {
         client.setProfile = sql.prepare("INSERT OR REPLACE INTO profile (id, user, zone, birth, gender, marry, bio) VALUES (@id, @user, @zone, @birth, @gender, @marry, @bio);");
         authorProfile = client.getProfile.get(message.author.id);
 
-        if (!authorProfile || !victimProfile) return message.reply(`One of you doesn't have a profile setup, try //profile first.`);
+        client.getInv = sql.prepare("SELECT * FROM inventory WHERE id = ?");
+        client.setInv = sql.prepare("INSERT OR REPLACE INTO inventory (id, user, pills, shoes, thief, computer, magazine, box, ring, die, gun, kit, foxphone, hat ) VALUES (@id, @user, @pills, @shoes, @thief, @computer, @magazine, @box, @ring, @die, @gun, @kit, @foxphone, @hat);");
+        Inv = client.getInv.get(message.author.id);
+
+        if (!Inv) {
+            Inv = {
+                id: message.author.id, user: message.author.username, pills: 0, shoes: 0, thief: 0, computer: 0, magazine: 0, box: 0, ring: 0, die: 0, gun: 0, kit: 0, foxphone: 0, hat: 0
+            }
+        }
+
+        if (!authorProfile) return message.reply(`One of you doesn't have a profile setup, try //profile first.`);
         var aMarry = marry[Math.floor(Math.random() * marry.length)];
 
         var victim = message.mentions.users.first() || client.users.get(args[0]);
@@ -30,6 +40,10 @@ module.exports = {
             return message.reply("Thanks, but I'm not on the market.")
 
         } else {
+
+            if (Inv.ring == 0) return message.channel.reply(`You should go buy a wedding ring first, so you can make your proposal look fancier!`);
+
+
 
             var victimProfile = client.getProfile.get(victim.id);
 
@@ -57,11 +71,13 @@ module.exports = {
 
                         if (reaction.emoji.name === '✅') {
 
+                            Inv.ring -= 1;
                             victimProfile.marry = message.author.id;
                             authorProfile.marry = victim.id;
 
                             client.setProfile.run(victimProfile);
                             client.setProfile.run(authorProfile);
+                            client.setInv.run(Inv);
 
                             return message.channel.send(`Pop the champagne! ${victim} and ${message.author} are now hitched!`);
 

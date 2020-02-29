@@ -38,7 +38,7 @@ module.exports = {
             }
         }
 
-        if (!Profile || !Dick) return message.reply("Couldn't find your profile! Please go do //profile and come back to this command!");
+       // if (!Profile || !Dick) return message.reply("Couldn't find your profile! Please go do //profile and come back to this command!");
 
         if (!Eco) return message.reply(`You don't have an Eco account setup! Do //money and then come back to this command.`);
 
