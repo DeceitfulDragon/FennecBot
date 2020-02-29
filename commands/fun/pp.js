@@ -12,24 +12,13 @@ module.exports = {
 
         var ppResult = Math.floor(Math.random() * (max - min + 1)) + min;
 
-        const table = sql.prepare("SELECT count(*) FROM sqlite_master WHERE type='table' AND name = 'sizes';").get();
-
-        if (!table['count(*)']) {
-
-            sql.prepare("CREATE TABLE sizes (id TEXT PRIMARY KEY, size INTEGER, name TEXT);").run();
-
-            sql.prepare("CREATE UNIQUE INDEX idx_sizes_id ON sizes (id);").run();
-            sql.pragma("synchronous = 1");
-            sql.pragma("journal_mode = wal");
-        }
-
         client.getScore = sql.prepare("SELECT * FROM sizes WHERE id = ?");
-        client.setScore = sql.prepare("INSERT OR REPLACE INTO sizes (id, size, name) VALUES (@id, @size, @name);");
+        client.setScore = sql.prepare("INSERT OR REPLACE INTO sizes (id, size, tiddy, name) VALUES (@id, @size, @tiddy, @name);");
 
 
         score = client.getScore.get(message.author.id);
         if (!score) {
-            score = { id: message.author.id, size: ppResult, name: message.author.username }
+            score = { id: message.author.id, size: ppResult, tiddy: "//tiddy", name: message.author.username }
         }
         client.setScore.run(score);
 

@@ -8,12 +8,11 @@ module.exports = {
     cooldown: 1,
     execute(client, message, args, sql) {
 
-
         client.getProfile = sql.prepare("SELECT * FROM profile WHERE id = ?");
-        client.setProfile = sql.prepare("INSERT OR REPLACE INTO profile (id, user, zone, birth, gender, dwins, marry) VALUES (@id, @user, @zone, @birth, @gender, @dwins, @marry);");
+        client.setProfile = sql.prepare("INSERT OR REPLACE INTO profile (id, user, zone, birth, gender, marry, bio) VALUES (@id, @user, @zone, @birth, @gender, @marry, @bio);");
         authorProfile = client.getProfile.get(message.author.id);
 
-        if (!profile || !victimProfile) return message.reply(`One of you doesn't have a profile setup, try //profile first.`);
+        if (!authorProfile || !victimProfile) return message.reply(`One of you doesn't have a profile setup, try //profile first.`);
         var aMarry = marry[Math.floor(Math.random() * marry.length)];
 
         var victim = message.mentions.users.first() || client.users.get(args[0]);

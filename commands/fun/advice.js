@@ -6,7 +6,7 @@ module.exports = {
     description: 'Get some advice',
     usage: '//advice',
     cooldown: 1,
-    execute(message, args) {
+    execute(client, message, args) {
 
         request(apiURL, function (error, response, body) {
             if (!error && response.statusCode == 200) {

@@ -13,7 +13,7 @@ module.exports = {
     name: 'bottle',
     description: 'Spin a bottle and see which user it lands on!',
     usage: '//bottle',
-    aliases: ['icon', 'pfp'],
+    aliases: ['spin'],
     cooldown: 2,
     execute(message) {
 

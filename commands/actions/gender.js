@@ -6,6 +6,18 @@ module.exports = {
     cooldown: 1,
     execute(client, message, args, sql) {
 
+        client.getProfile = sql.prepare("SELECT * FROM profile WHERE id = ?");
+        client.setProfile = sql.prepare("INSERT OR REPLACE INTO profile (id, user, zone, birth, gender, marry, bio) VALUES (@id, @user, @zone, @birth, @gender, @marry, @bio);");
+        Profile = client.getProfile.get(message.author.id);
+
+        if (!Profile) {
+            Profile = {
+                id: message.author.id, user: message.author.username, zone: "not set", birth: "not set", gender: "not set", marry: "Nobody", bio: "//bio"
+            }
+        }
+        client.setProfile.run(Profile);
+
+
         var gender = args[0];           // args[0] == what you say after the command
         var gender = gender.toLowerCase();
 

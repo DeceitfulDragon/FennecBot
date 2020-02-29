@@ -18,11 +18,11 @@ module.exports = {
 
         } else if (item == "running shoes") {
 
-            return message.reply("**Item:** :athletic_shoe: Running Shoes\n**Description:** Mom's good old running shoes, purchasable by having a pokemon mother or paying the $700 credits for it. Increases chances of escaping muggings and robberies.");
+            return message.reply("**Item:** :athletic_shoe: Running Shoes\n**Description:** Mom's good old running shoes, purchasable by having a pokemon mother or paying the $700 credits for it. Increases chances of escaping muggings.");
 
         } else if (item == "thief's tools") {
 
-            return message.reply("**Item:** :toolbox: Thieve's Tools\n**Description:** Found some tools or something in a garage sale, could probably help you out, just don't do anything bad with them. Increases chances of successful robbings and crimes.");
+            return message.reply("**Item:** :toolbox: Thief's Tools\n**Description:** Found some tools or something in a garage sale, could probably help you out, just don't do anything bad with them. Increases chances of successful crimes.");
 
         } else if (item == "computer") {
 

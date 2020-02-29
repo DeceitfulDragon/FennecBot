@@ -1,6 +1,4 @@
-﻿const SQLite = require("better-sqlite3");
-const sql = new SQLite('./main.sqlite');
-const Discord = require("discord.js");
+﻿const Discord = require("discord.js");
 const prompter = require('discordjs-prompter');
 
 module.exports = {
@@ -9,7 +7,7 @@ module.exports = {
     aliases: ['purchase'],
     usage: '//buy <store item>',
     cooldown: 0,
-    execute(message, args) {
+    execute(client, message, args, sql) {
 
         client.getEco = sql.prepare("SELECT * FROM economy WHERE id = ?");
         client.setEco = sql.prepare("INSERT OR REPLACE INTO economy (id, cash, bank, user) VALUES (@id, @cash, @bank, @user);");

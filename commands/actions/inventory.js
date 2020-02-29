@@ -1,4 +1,6 @@
-﻿
+﻿const Discord = require("discord.js");
+const { stripIndents } = require('common-tags');
+
 module.exports = {
     name: 'inventory',
     description: 'Open your inventory or use an item.',
@@ -24,28 +26,62 @@ module.exports = {
             }
         }
 
+
+        function emoji(object) { // Custom function to return with a check-mark or X depending on value of inventory
+            if (object == 1) {
+                return `:white_check_mark:`;
+            } else {
+                return `❌`;
+            }
+        }
+    
         if (!score) return message.reply(`I don't know your dick size yet! Go on over to the randomizer at //pp and come back with your pants down to help me out!`);
 
 
         if (item == "penis pills") {
 
-            if (Inv.pills = 0) return message.reply(`You don't have any of those to use try //buy!`)
+            if (Inv.pills > 0) {
 
-            Inv.pills -= 1;
+                Inv.pills -= 1;
 
-            score.size += 3;
+                score.size += 3;
 
-            client.setInv.run(Inv);
-            client.setScore.run(score);
+                client.setInv.run(Inv);
+                client.setScore.run(score);
+            } else {
+                return message.reply(`You don't have any of those to use try //buy!`)
+            }
 
-            return message.reply(`You took one of your patented Hamderg-Brand Penis Pills and watched your dick grow about three inches bigger! It's now ${score.size} inches long! uwu.`);
+            return message.reply(`You took one of your patented Hamderg-Brand Penis Pills and watched your dick grow about three inches bigger! It's now **${score.size} inches** long! uwu.`);
 
-        }
-
-        if (item == "mystery box") {
+        } else if (item == "mystery box") {
 
             return message.reply(`Not yet made.`);
 
+        } else {
+
+            const invEmbed = new Discord.RichEmbed()
+                .setColor(client.config.economyColor)
+                .setTitle(`${message.author.username}'s Inventory`)
+                .setDescription(stripIndents`
+               :womans_hat: Hats: **${Inv.hat}**
+               :pill: Penis Pills: **${Inv.pills}**
+               :gift: Mystery Boxes: **${Inv.box}**
+               :newspaper: Porn Magazines: **${Inv.magazine}**
+
+               :gun: Gun: ${emoji(Inv.gun)}
+               :iphone: foxPhone: ${emoji(Inv.foxphone)}
+               :desktop: Computer: ${emoji(Inv.computer)}
+               :game_die: Rigged Die: ${emoji(Inv.die)}
+               :toolbox: Thief's Tools: ${emoji(Inv.thief)}
+               :knife: Harvesting Kit: ${emoji(Inv.kit)}
+               :ring: Wedding Ring: ${emoji(Inv.ring)}
+               :athletic_shoe: Running Shoes: ${emoji(Inv.shoes)}
+`           );
+
+            return message.channel.send(invEmbed);
+
         }
+
     },
 };

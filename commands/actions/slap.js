@@ -13,17 +13,19 @@ module.exports = {
 
         if (victim == caller) {
 
-            message.channel.send("You shouldn't slap yourself...")
+            return message.channel.send("You shouldn't slap yourself...")
+
+        } else if (victim.id == "532770681096503299") {
+
+            return message.channel.send("Why would you slap me? :cry:")
 
         } else if (!victim) {
-
-            message.channel.send("Please mention a user to slap!")
 
         } else {
 
             var aSlap = slap[Math.floor(Math.random() * slap.length)];
 
-            message.channel.send(`${message.author} just slapped ${victim}!\n${aSlap}`)
+           return message.channel.send(`${message.author} just slapped ${victim}!\n${aSlap}`)
         }
 
     },

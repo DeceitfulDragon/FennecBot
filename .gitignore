@@ -14,13 +14,12 @@ bin
 
 # Secret Files
 *.env
-assets
 *.bat
 *.sqlite
 *.sqlite-shm
 *.sqlite-wal
-/commands/news.json
 news.json
+news.js
 .bat
 .lnk
 .code-workspace
@@ -96,4 +95,6 @@ typings/
 .fusebox/
 *.code-workspace
 *.lnk
-commands/child.js
+child.js
+assets/canvas.js
+assets/docs.js

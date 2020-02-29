@@ -1,10 +1,8 @@
-﻿const { TZ } = require('../../assets/json/AmericanTimeZones.json')
-
+﻿
 module.exports = {
-    name: 'timezone',
-    description: 'Set your timezone on the profile.',
-    aliases: ['tz', 'zone'],
-    usage: '//timezone <timezone>',
+    name: 'bio',
+    description: 'Set your bio on the profile.',
+    usage: '//bio <bio>',
     cooldown: 2,
     execute(client, message, args, sql) {
 
@@ -19,24 +17,16 @@ module.exports = {
         }
         client.setProfile.run(Profile);
 
-        var zone = args[0];
-        var uZone = zone.toUpperCase();
+        if (!args.length) return message.reply(`Write down what you want your biography to be!`)
 
+        var bio = args.join(" ");
 
-        if (TZ.includes(uZone) == true) {
-
-            var data = `UPDATE profile
-		SET zone = '${zone}'
+        var data = `UPDATE profile
+		SET bio = '"${bio}"'
 		WHERE id = ${message.author.id};`
 
-            sql.exec(data);
+        sql.exec(data);
 
-            return message.reply(`Success! Your time-zone has been set to ${zone}`);
-
-        } else {
-
-            return message.reply(`Please choose a proper Timezone.`);
-
-        }
+        return message.reply(`Success! Your bio is now: "${bio}"`);
     },
 };

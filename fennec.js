@@ -6,8 +6,6 @@ const fs = require("fs");
 const config = require("./assets/json/config.json")
 const client = new Discord.Client();
 const chalk = require('chalk');
-const SQLite = require("better-sqlite3");
-const sql = new SQLite('./main.sqlite');
 
 // Listens for Errors and Warnings. Debug shows Discord Web Socket Information
 client.on("error", (e) => console.log(e));
@@ -28,10 +26,8 @@ client.on("guildDelete", guild => { console.log(chalk.yellow.bold(`< FennecBot w
         });
     });
 
-
 client.commands = new Discord.Collection();
-client.aliases = new Discord.Collection();
-
+client.commands.aliases = new Discord.Collection();
 
 const modules = [
     'fun',
@@ -46,18 +42,20 @@ const modules = [
     'actions'
 ];
 
+console.log(chalk.blue.bold(`------------------------------------------------------`));
+
 modules.forEach(c => {
 
     fs.readdir(`./commands/${c}/`, (err, files) => {  if (err) throw err; 
-        console.log(chalk.white(`> Loaded `) + chalk.blue.bold(files.length) + chalk.white(` commands from the `) + chalk.blue.bold(c) + chalk.white(` module`)); 
+        console.log(chalk.white(` > Loaded `) + chalk.blue.bold(files.length) + chalk.white(` commands from the `) + chalk.blue.bold(c) + chalk.white(` module`)); 
 
         files.forEach(f => { 
          const command = require(`./commands/${c}/${f}`);
             client.commands.set(command.name, command); 
 
-            //client.commands.aliases.forEach(aliases => { 
-               // client.aliases.set(aliases, command.name); 
-           // });
+            /*client.commands.aliases.forEach(aliases => { 
+               client.aliases.set(aliases, command.name); 
+             });*/
         });
     });
 });

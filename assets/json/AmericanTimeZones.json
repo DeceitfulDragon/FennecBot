@@ -1,0 +1,26 @@
+﻿{
+
+
+
+"TZ": [
+    "HST",
+    "AKDT",
+    "PST",
+    "MST",
+	"MDT",
+	"CST",
+	"EST"
+  ],
+
+"TZD": [
+    "Hawaii Standard Time",
+    "Alaska Daylight Time",
+    "Pacific Daylight Time",
+    "Mountain Standard Time",
+	"Mountain Daylight Time",
+	"Central Daylight Time",
+	"Eastern Daylight Time"
+]
+
+
+}

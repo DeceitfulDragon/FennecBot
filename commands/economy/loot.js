@@ -1,6 +1,7 @@
 ﻿const { loot } = require("../../assets/json/eco.json")
 const min = 10;
 const max = 50;
+const talkedRecently = new Set();
 
 module.exports = {
     name: 'loot',
@@ -8,6 +9,8 @@ module.exports = {
     usage: '//loot',
     cooldown: 1,
     execute(client, message, args, sql) {
+
+        if (talkedRecently.has(message.author.id)) return message.reply(`You're on a cooldown buddy, take a breather. (Timeout = 5 minutes)`);
 
         client.getEco = sql.prepare("SELECT * FROM economy WHERE id = ?");
         client.setEco = sql.prepare("INSERT OR REPLACE INTO economy (id, cash, bank, user) VALUES (@id, @cash, @bank, @user);");
@@ -21,6 +24,11 @@ module.exports = {
             return message.reply(`You don't have an bank account setup! Do //account and then come back to this command.`);
 
         } else {
+
+                talkedRecently.add(message.author.id);
+                setTimeout(() => {
+                    talkedRecently.delete(message.author.id);
+                }, 5000);
 
                 Eco.cash += money;	// Put it into the cash
 
