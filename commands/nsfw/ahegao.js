@@ -1,15 +1,12 @@
 ﻿const Discord = require('discord.js');
 const randomPuppy = require('random-puppy');
-const SQLite = require("better-sqlite3");
-const sql = new SQLite('./main.sqlite');
-
 module.exports = {
     name: 'ahegao',
     description: 'Get some NSFW pics of lewd ahegao pictures.',
     aliases: ['lewd'],
     usage: '//ahegao',
     cooldown: 1,
-    execute(message, args) {
+    execute(client, message, args, sql) {
 
         client.getSettings = sql.prepare("SELECT * FROM settings WHERE guildid = ?");
         client.setSettings = sql.prepare("INSERT OR REPLACE INTO settings (guildid, guildname, nsfw, economy, music) VALUES (@guildid, @guildname, @nsfw, @economy, @music);");

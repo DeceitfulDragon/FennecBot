@@ -1,7 +1,6 @@
 require('dotenv').config();
 require('dotenv').load();
 const Discord = require("discord.js");
-const Enmap = require("enmap");
 const fs = require("fs");
 const config = require("./assets/json/config.json")
 const client = new Discord.Client();

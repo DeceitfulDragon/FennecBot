@@ -7,11 +7,9 @@ module.exports = {
     name: 'love',
     description: 'Find out how much two people love eachother.',
     aliases: ['calculate'],
-    usage: '//love <name> <name>',
+    usage: '//love <name>, <name>',
     cooldown: 1,
     execute(client, message, args) {
-
-        var choices = args.split(', ');
 
         var percentage = Math.floor(Math.random() * (max - min + 1)) + min;
 
@@ -46,7 +44,7 @@ module.exports = {
         const loveEmbed = new Discord.RichEmbed()
             .setColor('#FF00BB')
             .setThumbnail(heartIco)
-            .setAuthor(`Love Calculator [${choices[1]} & ${choices[2]}]`)
+            .setAuthor(`Love Calculator [ ${args[0]} & ${args[1]} ]`)
             .addField(`Calculation:`, `**${percentage}%**`)
             .addField("Statement:", statement);
         return message.channel.send(loveEmbed);

@@ -7,7 +7,9 @@ module.exports = {
     execute(client, message, args) {
 
         var max = args[0]
-
+	
+	if (!max) return message.reply(`Please specify a max number!`);
+	
         if (max < 2) {
             message.channel.send("Please pick a number greater than 1.")
         } else {

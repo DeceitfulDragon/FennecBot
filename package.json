@@ -7,32 +7,31 @@
     "dev": "nodemon fennec.js"
   },
   "dependencies": {
-    "better-sqlite3": "^5.4.0",
-    "booru": "^2.0.0",
+    "better-sqlite3": "^5.4.3",
+    "booru": "^2.1.0",
     "bot-utils": "^1.4.2",
     "canvas": "^2.6.1",
     "canvas-constructor": "^3.1.0",
     "chalk": "^3.0.0",
-    "common-tags": "^1.7.1",
-    "discord-anti-spam": "^2.0.4",
-    "discord.js": "^11.4.2",
+    "common-tags": "^1.8.0",
+    "discord-anti-spam": "^2.3.5",
+    "discord.js": "^11.6.1",
     "discord.js-poll-embed": "^1.0.2",
-    "discordjs-prompter": "^1.3.1",
+    "discordjs-prompter": "^1.3.2",
     "dotenv": "^6.2.0",
-    "enmap": "^4.6.5",
+    "enmap": "^4.8.7",
     "he": "^1.2.0",
-    "log4js": "^4.1.0",
-    "newsapi": "^2.4.0",
+    "log4js": "^4.5.1",
     "node-fetch": "^2.6.0",
     "node-superfetch": "^0.1.10",
     "opendtb-wrapper": "^1.4.1",
     "random-puppy": "^1.1.0",
-    "request": "^2.88.0",
-    "underscore": "^1.9.1",
+    "request": "^2.88.2",
+    "underscore": "^1.9.2",
     "urban": "^0.3.2",
-    "xml2js": "^0.4.19"
+    "xml2js": "^0.4.23"
   },
   "devDependencies": {
-    "nodemon": "^1.18.9"
+    "nodemon": "^1.19.4"
   }
 }

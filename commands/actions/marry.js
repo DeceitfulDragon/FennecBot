@@ -41,7 +41,7 @@ module.exports = {
 
         } else {
 
-            if (Inv.ring == 0) return message.channel.reply(`You should go buy a wedding ring first, so you can make your proposal look fancier!`);
+            if (Inv.ring == 0) return message.reply(`You should go buy a wedding ring first, so you can make your proposal look fancier!`);
 
 
 

@@ -10,34 +10,17 @@ module.exports = {
     cooldown: 2,
     execute(client, message, args) {
 
-
-        /*const svinfo = new Discord.RichEmbed()
-            .setColor(client.config.color)
-            .addField("Server Name:", message.guild.name, true)
-            .addField("Server Owner:", message.guild.owner, true)
-            .addField("Total Members:", message.guild.memberCount, true)
-            .addField("Server Region:", message.guild.region, true)
-            .addField("Server Verification Level:", `${verificationLevels[message.guild.verificationLevel]}`, false)
-            .addField("Server Content Filter:", `${explicitContentFilters[message.guild.explicitContentFilter]}`, false)
-            .addField("Created On:", message.guild.createdAt)
-            .addField("FennecBot Joined:", message.guild.joinedAt)
-            .addField("Emojis", `${message.guild.emojis.size}`)
-            .setThumbnail(message.guild.iconURL);*/
-
-
         const embed = new Discord.RichEmbed()
-            .setColor(0x00AE86)
+            .setColor(`#0000ff`)
             .setTitle('Server Info')
             .setThumbnail(message.guild.iconURL)
-            .addField(':arrow_right: Name', message.guild.name, true)
-            .addField(':arrow_right: ID', message.guild.id, true)
-            .addField(':arrow_right: Region', message.guild.region.toUpperCase(), true)
-            .addField(':arrow_right: Creation Date', message.guild.createdAt.toDateString(), true)
-            .addField(':arrow_right: Owner', message.guild.owner.user.tag, true)
-            .addField(':arrow_right: Members', message.guild.memberCount, true)
-            .addField(':arrow_right: Roles', message.guild.roles.map(role => role.toString()).join(' **|** '), true)
-            .addField(':arrow_right: Categories', message.guild.channels.filter(channel => channel.type === 'category').map(category => category.toString()).join(' **|** '), true)
-            .addField(':arrow_right: Channels', message.guild.channels.filter(channel => channel.type !== 'category').map(channel => channel.toString()).join(' **|** '), true);
+            .addField(':large_blue_diamond: Name:', message.guild.name, true)
+            .addField(':large_blue_diamond: Owner:', message.guild.owner.user, true)
+            .addField(':large_blue_diamond: Creation Date:', message.guild.createdAt.toDateString(), true)
+            .addField(':large_blue_diamond: Guild ID:', message.guild.id, true)
+            .addField(':large_blue_diamond: Region:', message.guild.region.toUpperCase(), true)
+            .addField(':large_blue_diamond: Member Count:', message.guild.memberCount, true)
+            .addField(':large_blue_diamond: Roles:', message.guild.roles.map(role => role.toString()).join(' , '), true)
 
         return message.channel.send(embed);
     },

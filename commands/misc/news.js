@@ -1,4 +1,4 @@
-﻿const NewsAPI = require('newsapi');
+﻿/*const NewsAPI = require('newsapi');
 const Discord = require("discord.js");
 const news = require("../../assets/json/news.json")
 
@@ -92,4 +92,4 @@ module.exports = {
 
         });
     },
-};
+};*/

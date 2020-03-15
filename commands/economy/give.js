@@ -24,6 +24,8 @@ module.exports = {
             Giver = client.getEco.get(message.author.id);
             Reciever = client.getEco.get(user.id);
 
+            if (user == message.author) return message.reply(`no`);
+
             if (!giveamount) {
 
                 return message.reply("You can't give nothing! Please specify the amount!")

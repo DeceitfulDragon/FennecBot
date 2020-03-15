@@ -20,7 +20,7 @@ module.exports = {
 
         const accountEmbed = new Discord.RichEmbed()
             .setColor(client.config.economyColor)
-            .setAuthor(`${message.author.username}'s Balance.`)
+            .setTitle(`💰 ${message.author.username}'s Balance`)
             .addField("Cash", `$${account.cash}`, true)
             .addField("Bank", `$${account.bank}`, true);
 

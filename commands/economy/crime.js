@@ -18,14 +18,15 @@ module.exports = {
         Eco = client.getEco.get(message.author.id);
 
         client.getInv = sql.prepare("SELECT * FROM inventory WHERE id = ?");
-        client.setInv = sql.prepare("INSERT OR REPLACE INTO inventory (id, user, pills, shoes, thief, computer, magazine, box, ring, die, gun, kit, foxphone, hat ) VALUES (@id, @user, @pills, @shoes, @thief, @computer, @magazine, @box, @ring, @die, @gun, @kit, @foxphone, @hat);");
+        client.setInv = sql.prepare("INSERT OR REPLACE INTO inventory (id, user, pills, shoes, thief, computer, magazine, box, ring, die, elixir, kit, foxphone, hat ) VALUES (@id, @user, @pills, @shoes, @thief, @computer, @magazine, @box, @ring, @die, @elixir, @kit, @foxphone, @hat);");
         Inv = client.getInv.get(message.author.id);
 
         if (!Inv) {
             Inv = {
-                id: message.author.id, user: message.author.username, pills: 0, shoes: 0, thief: 0, computer: 0, magazine: 0, box: 0, ring: 0, die: 0, gun: 0, kit: 0, foxphone: 0, hat: 0
+                id: message.author.id, user: message.author.username, pills: 0, shoes: 0, thief: 0, computer: 0, magazine: 0, box: 0, ring: 0, die: 0, elixir: 0, kit: 0, foxphone: 0, hat: 0
             }
         }
+        client.setInv.run(Inv);
         
         if (Inv.thief = 1) {
             var cmin = 10;

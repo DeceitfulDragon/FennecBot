@@ -1,0 +1,77 @@
+﻿{
+  "product": [
+    {
+      "emoji": ":pill:",
+      "name": "Penis Pills",
+      "description": "Dick too small? Or already too big? Why not add some more inches with Hamderg Brand Penis Pills! Adds 3 inches to your pp length.",
+      "price": "1500"
+    },
+    {
+      "emoji": ":athletic_shoe:",
+      "name": "Running Shoes",
+      "description": "Mom's good old running shoes, purchasable by having a pokemon mother or paying the $700 credits for it. Increases chances of escaping muggings.",
+      "price": "1000"
+    },
+    {
+      "emoji": ":toolbox:",
+      "name": "Thief's Tools",
+      "description": "Found some tools or something in a garage sale, could probably help you out, just don't do anything bad with them. Increases chances of successful crimes.",
+      "price": "2000"
+    },
+    {
+      "emoji": ":desktop:",
+      "name": "Computer",
+      "description": "Find better job offers on linkedin, and make more money -- is what I would say if you weren't just gonna watch futa porn on it all day. Grants higher working wages.",
+      "price": "800"
+    },
+
+    {
+      "emoji": ":newspaper:",
+      "name": "Porn Magazine",
+      "description": "What, the computer wasn't enough for you? Guess you can sit around like some boomer still using magazines to jerk off to women's ankles I guess. Weirdo.",
+      "price": "100"
+    },
+    {
+      "emoji": ":gift:",
+      "name": "Mystery Box",
+      "description": "It's a fuckin' box man what else do you want, might have a dead cat or some cash in it, i don't know. I just found it in the walmart parking lot.",
+      "price": "700"
+    },
+    {
+      "emoji": ":ring:",
+      "name": "Wedding Ring",
+      "description": "Allows you to get married with someone.",
+      "price": "500"
+    },
+    {
+      "emoji": ":game_die:",
+      "name": "Rigged Die",
+      "description": "I stuck some gum on the bottom of this monopoly dice, should get you something nice, fucking ~~cheetah~~ cheater. Increases odds of winning gambling games.",
+      "price": "600"
+    },
+    {
+      "emoji": ":test_tube:",
+      "name": "Tiddy Elixir",
+      "description": "Breasts too small? size them up with this elixer",
+      "price": "1300"
+    },
+    {
+      "emoji": ":knife:",
+      "name": "Harvesting Kit",
+      "description": "Got something too big? Why not shrink it down with our patent-pending",
+      "price": "1400"
+    },
+    {
+      "emoji": ":iphone:",
+      "name": "foxPhone",
+      "description": "I found a phone in one of those walmart e-waste recyclers, looks like it works. Better wages for prositution.",
+      "price": "400"
+    },
+    {
+      "emoji": ":womans_hat:",
+      "name": "Hat",
+      "description": "Stole this hat from an old lady, looks nice.",
+      "price": "200"
+    }
+  ]
+}

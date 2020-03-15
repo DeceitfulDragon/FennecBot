@@ -12,20 +12,20 @@ module.exports = {
         var item = args.join(" ");
         var item = item.toLowerCase();
 
-        client.getInv = sql.prepare("SELECT * FROM inventory WHERE id = ?");
-        client.setInv = sql.prepare("INSERT OR REPLACE INTO inventory (id, user, pills, shoes, thief, computer, magazine, box, ring, die, gun, kit, foxphone, hat ) VALUES (@id, @user, @pills, @shoes, @thief, @computer, @magazine, @box, @ring, @die, @gun, @kit, @foxphone, @hat);");
-        Inv = client.getInv.get(message.author.id);
-
         client.getScore = sql.prepare("SELECT * FROM sizes WHERE id = ?");
         client.setScore = sql.prepare("INSERT OR REPLACE INTO sizes (id, size, name) VALUES (@id, @size, @name);");
         score = client.getScore.get(message.author.id);
 
+        client.getInv = sql.prepare("SELECT * FROM inventory WHERE id = ?");
+        client.setInv = sql.prepare("INSERT OR REPLACE INTO inventory (id, user, pills, shoes, thief, computer, magazine, box, ring, die, elixir, kit, foxphone, hat ) VALUES (@id, @user, @pills, @shoes, @thief, @computer, @magazine, @box, @ring, @die, @elixir, @kit, @foxphone, @hat);");
+        Inv = client.getInv.get(message.author.id);
+
         if (!Inv) {
             Inv = {
-                id: message.author.id, user: message.author.username, pills: 0, shoes: 0, thief: 0, computer: 0, magazine: 0, box: 0, ring: 0, die: 0, gun: 0, kit: 0, foxphone: 0, hat: 0
+                id: message.author.id, user: message.author.username, pills: 0, shoes: 0, thief: 0, computer: 0, magazine: 0, box: 0, ring: 0, die: 0, elixir: 0, kit: 0, foxphone: 0, hat: 0
             }
         }
-
+        client.setInv.run(Inv);
 
         function emoji(object) { // Custom function to return with a check-mark or X depending on value of inventory
             if (object == 1) {
@@ -69,7 +69,7 @@ module.exports = {
                :gift: Mystery Boxes: **${Inv.box}**
                :newspaper: Porn Magazines: **${Inv.magazine}**
 
-               :gun: Gun: ${emoji(Inv.gun)}
+               :test_tube: Tiddy Elixir: ${emoji(Inv.elixir)}
                :iphone: foxPhone: ${emoji(Inv.foxphone)}
                :desktop: Computer: ${emoji(Inv.computer)}
                :game_die: Rigged Die: ${emoji(Inv.die)}

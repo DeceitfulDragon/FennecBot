@@ -21,6 +21,8 @@ module.exports = {
 
         var bio = args.join(" ");
 
+        if (bio.length > 100) return message.reply(`Your bio has too many characters! trim it down a little!`);
+
         var data = `UPDATE profile
 		SET bio = '"${bio}"'
 		WHERE id = ${message.author.id};`

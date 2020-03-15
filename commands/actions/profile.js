@@ -11,26 +11,31 @@ module.exports = {
     cooldown: 2,
   async execute(client, message, args, sql) {
 
-      var member = message.author;
+      if (!args.length) {
+          var member = message.author
+      } else {
 
+          var member = message.mentions.users.first() || client.users.get(args[0]);
+
+      }
         client.getProfile = sql.prepare("SELECT * FROM profile WHERE id = ?");
         client.setProfile = sql.prepare("INSERT OR REPLACE INTO profile (id, user, zone, birth, gender, marry, bio) VALUES (@id, @user, @zone, @birth, @gender, @marry, @bio);");
-        Profile = client.getProfile.get(message.author.id);
+        Profile = client.getProfile.get(member.id);
 
         client.getCustom = sql.prepare("SELECT * FROM custom WHERE id = ?");
         client.setCustom = sql.prepare("INSERT OR REPLACE INTO custom (id, user, profile, text, background) VALUES (@id, @user, @profile, @text, @background);");
-        Custom = client.getCustom.get(message.author.id);
+        Custom = client.getCustom.get(member.id);
 
       if (!Profile) {
           Profile = {
-                id: message.author.id, user: message.author.username, zone: "not set", birth: "not set", gender: "not set", marry: "Nobody", bio: "//bio"
+                id: member.id, user: message.author.username, zone: "not set", birth: "not set", gender: "not set", marry: "Nobody", bio: "//bio"
           }
       }
       client.setProfile.run(Profile);
 
       if (!Custom) {
           Custom = {
-              id: message.author.id, user: message.author.username, profile: "default", text: 1, background: "#23272A"
+              id: member.id, user: message.author.username, profile: "default", text: 1, background: "#23272A"
           }
       }
      client.setCustom.run(Custom);

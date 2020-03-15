@@ -1,6 +1,6 @@
 ﻿const { createCanvas, loadImage } = require('canvas');
-const request = require('node-superfetch');
-const Discord = require('discord.js');
+const fetch = require("node-fetch");
+const imageUrlRegex = /\?size=2048$/g;
 
 module.exports = {
     name: 'beautiful',
@@ -10,13 +10,21 @@ module.exports = {
     cooldown: 1,
    async execute(client, message, args) {
 
-        const user = message.mentions.users.first();
-        var Avatar = user.displayAvatarURL({ format: 'png', size: 128 });
-        //
+       const user = message.mentions.users.first();
 
-        const image = await loadImage('assets/images/grunkle.png');
-        const body = await request.get(Avatar);
-        const avatar = await loadImage(body);
+       if (!user) return message.reply(`Ping someone for the image!`);
+
+       message.channel.startTyping();
+
+       // var Avatar = user.displayAvatarURL({ format: 'png', size: 128 });
+        //
+       const result = await fetch(user.displayAvatarURL.replace(imageUrlRegex, "?size=128"));
+       if (!result.ok) console.log("Failed to get the avatar.");
+       var avatar = await result.buffer();
+
+        const image = await loadImage('assets/images/grunkle2.png');
+        //const body = await request.get(Avatar);
+        var avatar = await loadImage(avatar);
         const canvas = createCanvas(image.width, image.height);
         const context = canvas.getContext('2d');
         context.fillStyle = 'white';
@@ -25,7 +33,8 @@ module.exports = {
         context.drawImage(avatar, 249, 223, 105, 105);
         context.drawImage(image, 0, 0);
 
-        console.log("should be working?")
-        return message.channel.send({ files: [{ attachment: canvas.toBuffer(), name: 'thisisbeautiful.png' }] });
+       message.channel.send({ files: [{ attachment: canvas.toBuffer(), name: 'thisisbeautiful.png' }] });
+
+       return message.channel.stopTyping();
     },
 };

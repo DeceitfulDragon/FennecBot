@@ -9,7 +9,7 @@ module.exports = {
         var profiles = [
             'vaporwave',
             'default',
-            'candycorn'
+            'halloween'
         ]
 
         if (!args[0]) return message.reply(`test`);
