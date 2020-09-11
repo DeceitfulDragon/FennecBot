@@ -22,7 +22,7 @@
     "enmap": "^4.8.7",
     "he": "^1.2.0",
     "log4js": "^4.5.1",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "node-superfetch": "^0.1.10",
     "opendtb-wrapper": "^1.4.1",
     "random-puppy": "^1.1.0",
